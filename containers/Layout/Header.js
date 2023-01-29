@@ -8,7 +8,7 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <div className=" bg-white p-5 shadow-sm">
+    <header className=" bg-white py-5 px-10 shadow-sm">
       <div className="container mx-auto xl:max-w-screen-2xl flex md:flex-row flex-col items-center justify-between">
         <div className="md:w-fit w-full">
           <div className="flex justify-between items-center ">
@@ -33,7 +33,7 @@ function Header() {
         <SearchBar />
         <Notifications />
       </div>
-    </div>
+    </header>
   );
 }
 
