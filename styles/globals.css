@@ -1,13 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('font.css');
+@import url("font.css");
 html,
 body {
   padding: 0;
   margin: 0;
 
-    background-color: #F6F7F9;
+  background-color: #f6f7f9;
 }
 
 a {
@@ -19,9 +19,20 @@ a {
   box-sizing: border-box;
 }
 
-
 @layer components {
   .scroll-effect {
-    @apply hover:scale-105 transition-all ease-in cursor-pointer
+    @apply hover:scale-105 transition-all ease-in cursor-pointer;
+  }
+  .cart-shadow {
+    position: absolute;
+    width: 100%;
+    height: 47px;
+    left: 0px;
+    top: 30px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      #ffffff 100%
+    );
   }
 }

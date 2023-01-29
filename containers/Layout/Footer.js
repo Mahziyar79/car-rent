@@ -5,7 +5,7 @@ import LogoImage from "../../public/images/Logo.png";
 
 function Footer() {
   return (
-    <footer className="bg-white px-10 py-14 md:py-5 shadow-sm mt-80">
+    <footer className="bg-white px-10 py-14 md:py-5 shadow-sm mt-20">
       <div className="container mx-auto xl:max-w-screen-2xl flex md:flex-row flex-col items-center justify-between border-b-2 md:py-10">
         <div className="grow flex flex-col items-center md:items-start mb-10 md:mb-0">
           <Image
