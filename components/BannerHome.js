@@ -1,11 +1,11 @@
 import Image from "next/image";
 import React from "react";
-import Ads1 from "../../public/images/BgAds1.png";
-import Ads2 from "../../public/images/BgAds2.png";
+import Ads1 from "../public/images/BgAds1.png";
+import Ads2 from "../public/images/BgAds2.png";
 
 function BannerHome() {
   return (
-    <div className="md:px-10 px-3">
+    <section className="md:px-10 px-3">
       <div className="container mx-auto xl:max-w-screen-2xl md:flex md:items-center md:justify-between md:gap-x-12 my-7 ">
         <div className="grow relative mb-5 md:mb-0">
           <Image
@@ -45,7 +45,7 @@ function BannerHome() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
