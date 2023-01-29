@@ -20,8 +20,8 @@ function Footer() {
             business.
           </p>
         </div>
-        <div className="flex md:flex-row flex-col items-center justify-between grow">
-          <div className="py-5 w-full">
+        <div className="flex md:flex-row md:flex-nowrap flex-wrap items-center justify-between grow md:w-auto w-full">
+          <div className="py-5">
             <h2 className="font-bold text-xl mb-4">About</h2>
             <span className="mb-4 w-7 h-[2px] bg-gray-200 block"></span>
             <ul className="flex flex-col gap-y-5 text-[#4b4b4b]">
@@ -39,7 +39,7 @@ function Footer() {
               </Link>
             </ul>
           </div>
-          <div className="py-5 w-full">
+          <div className="py-5">
             <h2 className="font-bold text-xl mb-6">Community</h2>
             <span className="mb-4 w-7 h-[2px] bg-gray-200 block"></span>
             <ul className="flex flex-col gap-y-5 text-[#4b4b4b]">
@@ -57,7 +57,7 @@ function Footer() {
               </Link>
             </ul>
           </div>
-          <div className="py-5 md:w-auto w-full">
+          <div className="py-5">
             <h2 className="font-bold text-xl mb-6">Socials</h2>
             <span className="mb-4 w-7 h-[2px] bg-gray-200 block"></span>
             <ul className="flex flex-col gap-y-5 text-[#4b4b4b]">
@@ -77,11 +77,11 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto xl:max-w-screen-2xl flex flex-col md:flex-row items-center justify-between pt-10 pb-6 font-bold text-center gap-y-10">
+      <div className="container mx-auto xl:max-w-screen-2xl flex flex-col md:flex-row items-center justify-between pt-10 md:pb-6 font-bold text-center gap-y-10">
         <div>
           <p>©2023 Car Rent Company. All rights reserved</p>
         </div>
-        <div className="flex items-center justify-between gap-x-12 flex-col md:flex-row gap-y-4">
+        <div className="flex items-center justify-between gap-x-12 flex-col md:flex-row gap-y-4 text-sm">
           <Link href="#">
             <p>Privacy & Policy</p>
           </Link>
