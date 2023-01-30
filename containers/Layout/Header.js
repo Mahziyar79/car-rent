@@ -5,6 +5,7 @@ import ProfileImage from "../../public/images/image-profile.png";
 import Notifications from "../../components/Header/Notifications";
 import SearchBar from "../../components/Header/SearchBar";
 import Link from "next/link";
+import MenuBar from "../../components/Header/MenuBar";
 
 function Header() {
   return (
@@ -21,13 +22,18 @@ function Header() {
                 height={150}
               />
             </Link>
-            <Image
-              className="md:hidden"
-              src={ProfileImage}
-              alt="Profile Image"
-              width={28}
-              height={28}
-            />
+            <div className="flex items-center gap-x-3">
+              <Image
+                className="md:hidden"
+                src={ProfileImage}
+                alt="Profile Image"
+                width={28}
+                height={28}
+              />
+              <div className="md:hidden">
+                <MenuBar />
+              </div>
+            </div>
           </div>
         </div>
         <SearchBar />

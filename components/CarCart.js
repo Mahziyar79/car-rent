@@ -7,13 +7,11 @@ import { CogIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Car1 from "../public/images/car1.png";
 import { carItems } from "../server/cartItems";
-
-
+import Link from "next/link";
 
 function CarCart() {
-  
   return (
-    <>  
+    <>
       {carItems?.map((carItem) => {
         return (
           <section
@@ -64,9 +62,11 @@ function CarCart() {
                 )}
               </div>
               <div>
-                <button className="md:py-2 md:px-4 p-2 bg-[#3563E9] rounded-md text-white text-sm">
-                  Rental Now
-                </button>
+                <Link href={`/cars/${carItem.id}`}>
+                  <button className="md:py-2 md:px-4 p-2 bg-[#3563E9] rounded-md text-white text-sm">
+                    Rental Now
+                  </button>
+                </Link>
               </div>
             </div>
           </section>

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import BannerHome from "../components/BannerHome";
 import CarCart from "../components/CarCart";
 import SearchCar from "../components/SearchCar";
