@@ -5,7 +5,7 @@ export const carItems = [
     gas: "90L",
     gear: "Manual",
     passengers: "2 People",
-    final_price: "99.00",
+    final_price: "107.00",
     is_like: true,
     id: 1,
   },

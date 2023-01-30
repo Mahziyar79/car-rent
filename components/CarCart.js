@@ -9,10 +9,10 @@ import Car1 from "../public/images/car1.png";
 import { carItems } from "../server/cartItems";
 import Link from "next/link";
 
-function CarCart() {
+function CarCart({sliceNubmer}) {
   return (
     <>
-      {carItems?.map((carItem) => {
+      {carItems?.slice(0,sliceNubmer).map((carItem) => {
         return (
           <section
             className="bg-white p-5 rounded-lg shadow-sm mx-2 md:mx-0"

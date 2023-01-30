@@ -20,7 +20,7 @@ export default function Home() {
           <Link href="/cars" className="text-[#3563E9]">View All</Link>
         </div>
         <div className=" grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-4">
-          <CarCart />
+          <CarCart sliceNubmer={8}/>
         </div>
       </div>
     </>
