@@ -1,5 +1,6 @@
 import React from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 import { FunnelIcon } from "@heroicons/react/24/solid";
 import { UserGroupIcon } from "@heroicons/react/24/solid";
 import { CogIcon } from "@heroicons/react/24/solid";
@@ -7,9 +8,12 @@ import Image from "next/image";
 import Car1 from "../public/images/car1.png";
 import { carItems } from "../server/cartItems";
 
+
+
 function CarCart() {
+  
   return (
-    <>
+    <>  
       {carItems?.map((carItem) => {
         return (
           <section
@@ -23,7 +27,11 @@ function CarCart() {
                   {carItem.category}
                 </span>
               </div>
-              <HeartIcon className="scroll-effect h-6 w-6 text-[#90A3BF] cursor-pointer" />
+              {carItem.is_like ? (
+                <HeartIconSolid className="scroll-effect h-6 w-6 text-red-500 cursor-pointer" />
+              ) : (
+                <HeartIcon className="scroll-effect h-6 w-6 text-[#90A3BF] cursor-pointer" />
+              )}
             </div>
             <div className="relative mb-10">
               <Image className="mx-auto mt-14" src={Car1} alt="Car1" />

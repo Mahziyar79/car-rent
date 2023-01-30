@@ -2,12 +2,15 @@ import React from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { BellAlertIcon } from "@heroicons/react/24/outline";
 import { Cog6ToothIcon } from "@heroicons/react/24/outline";
+import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import ProfileImage from "../../public/images/image-profile.png";
+import MenuBar from "./MenuBar";
+
 
 function Notifications() {
   return (
-    <div className="hidden md:flex md:gap-x-5">
+    <div className="hidden md:flex md:gap-x-5 items-center">
       <div>
         <HeartIcon className="h-8 w-8 text-gray-600 border border-gray-600 rounded-full p-1 hover:bg-gray-100 cursor-pointer scroll-effect" />
       </div>
@@ -21,13 +24,17 @@ function Notifications() {
       <div>
         <Cog6ToothIcon className="h-8 w-8 text-gray-600 border border-gray-600 rounded-full p-1 hover:bg-gray-100 cursor-pointer scroll-effect" />
       </div>
-      <Image
+      <div><Image
         className="max-w-none scroll-effect cursor-pointer"
         src={ProfileImage}
         alt="Profile Image"
         width={31}
         height={31}
-      />
+      /></div>
+      <div>
+       
+        <MenuBar />
+      </div>
     </div>
   );
 }
