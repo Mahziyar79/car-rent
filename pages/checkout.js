@@ -3,14 +3,16 @@ import { useRouter } from "next/router";
 import React from "react";
 import Rating from "@mui/material/Rating";
 import Car_1 from "../public/images/Car_1.jpg";
+import Visa from "../public/images/Visa.png";
 import { Divider } from "@mui/material";
 
 function checkout() {
   const router = useRouter();
-  console.log(router.query);
+  const productData = router.query;
+
   return (
     <div className="container mx-auto xl:max-w-screen-2xl">
-      <div className="flex md:flex-row flex-col items-start gap-x-7 mt-5">
+      <div className="flex md:flex-row flex-col-reverse  items-start gap-x-7 mt-5 xl:mx-0 mx-3">
         <div className="w-full lg:w-2/3">
           <div className="bg-white p-5 mb-8 rounded-lg">
             <h2 className="text-[#1A202C] font-bold text-lg">Billing Info</h2>
@@ -145,55 +147,103 @@ function checkout() {
             </div>
           </div>
           <div className="bg-white p-5 mb-8 rounded-lg">
-            <h2 className="text-[#1A202C] font-bold text-lg">Billing Info</h2>
+            <h2 className="text-[#1A202C] font-bold text-lg">Payment Method</h2>
             <p className="text-[#90A3BF] mt-1 font-light">
-              Please enter your billing info
+              Please enter your payment method
             </p>
-            <div className="flex flex-wrap items-center justify-between gap-y-4 mt-5">
-              <div className="flex flex-col gap-y-2 w-[47%]">
-                <label htmlFor="name">Name</label>
-                <input
-                  name="name"
-                  id="name"
-                  className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
-                  type="text"
-                  placeholder="Your name"
+            <div className=" mt-5 bg-[#F6F7F9] rounded-lg p-5">
+              <div className="flex items-center justify-between mb-6">
+                <p className="font-bold">Credit Card</p>
+                <Image
+                  className="rounded-md object-cover"
+                  src={Visa}
+                  alt="Visa Image"
                 />
               </div>
-              <div className="flex flex-col gap-y-2 w-[47%]">
-                <label htmlFor="phone_number">Phone Number</label>
-                <input
-                  name="phone_number"
-                  id="phone_number"
-                  className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
-                  type="number"
-                  placeholder="Phone number"
-                />
-              </div>
-              <div className="flex flex-col gap-y-2 w-[47%]">
-                <label htmlFor="address">Address</label>
-                <input
-                  name="address"
-                  id="address"
-                  className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
-                  type="text"
-                  placeholder="Address"
-                />
-              </div>
-              <div className="flex flex-col gap-y-2 w-[47%]">
-                <label htmlFor="town_city">Town / City</label>
-                <input
-                  name="town_city"
-                  id="town_city"
-                  className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
-                  type="text"
-                  placeholder="Town / City"
-                />
+              <div className="flex flex-wrap items-center justify-between gap-y-4">
+                <div className="flex flex-col gap-y-2 w-[47%]">
+                  <label htmlFor="card_number">Card Number</label>
+                  <input
+                    name="card_number"
+                    id="card_number"
+                    className=" py-3 px-4 outline-none text-sm rounded-lg"
+                    type="text"
+                    placeholder="Card Number"
+                  />
+                </div>
+                <div className="flex flex-col gap-y-2 w-[47%]">
+                  <label htmlFor="expire_date">Expration Date</label>
+                  <input
+                    id="expire_date"
+                    name="expire_date"
+                    type="date"
+                    className="py-3 px-4 outline-none text-sm rounded-lg"
+                  />
+                </div>
+                <div className="flex flex-col gap-y-2 w-[47%]">
+                  <label htmlFor="card_holder">Card Holder</label>
+                  <input
+                    name="card_holder"
+                    id="card_holder"
+                    className=" py-3 px-4 outline-none text-sm rounded-lg"
+                    type="text"
+                    placeholder="Card Holder"
+                  />
+                </div>
+                <div className="flex flex-col gap-y-2 w-[47%]">
+                  <label htmlFor="cvv">CVC</label>
+                  <input
+                    name="cvv"
+                    id="cvv"
+                    className=" py-3 px-4 outline-none text-sm rounded-lg"
+                    type="text"
+                    placeholder="CVC"
+                  />
+                </div>
               </div>
             </div>
           </div>
+          <div className="bg-white p-5 mb-8 rounded-lg">
+            <h2 className="text-[#1A202C] font-bold text-lg">Confirmation</h2>
+            <p className="text-[#90A3BF] mt-1 font-light">
+              We are getting to the end. Just few clicks and your rental is
+              ready!
+            </p>
+            <div className="flex flex-wrap items-center justify-between gap-y-4 mt-5">
+              <div className="flex gap-x-3 bg-[#F6F7F9] p-5 w-full rounded-lg">
+                <input
+                  name="agree_form"
+                  id="agree_form"
+                  className="py-3 px-4 outline-none text-sm rounded-lg"
+                  type="checkbox"
+                  placeholder="Your name"
+                  required
+                />
+                <label htmlFor="agree_form">
+                  I agree with sending an Marketing and newsletter emails. No
+                  spam, promissed!
+                </label>
+              </div>
+              <div className="flex gap-x-3 bg-[#F6F7F9] p-5 w-full rounded-lg">
+                <input
+                  name="agree_form1"
+                  id="agree_form1"
+                  className="py-3 px-4 outline-none text-sm rounded-lg"
+                  type="checkbox"
+                  placeholder="Your name"
+                  required
+                />
+                <label htmlFor="agree_form1">
+                  I agree with our terms and conditions and privacy policy.
+                </label>
+              </div>
+              <button className="md:py-4 md:px-7 px-4 py-2 bg-[#3563E9] rounded-md text-white scroll-effect">
+                Rental Now
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="bg-white w-full lg:w-1/3 p-5 rounded-b-lg">
+        <div className="bg-white w-full lg:w-1/3 p-5 rounded-lg mb-5 md:mb-0">
           <h2 className="text-[#1A202C] font-bold text-lg">Rental Summary</h2>
           <p className="text-[#90A3BF] mt-1 font-light">
             Prices may change depending on the length of the rental and the
@@ -208,10 +258,10 @@ function checkout() {
               height={150}
             />
             <div>
-              <h3 className="text-xl md:text-2xl font-bold">
-                {router.query?.name}
+              <h3 className="text-xl xl:text-2xl font-bold">
+                {productData?.name}
               </h3>
-              <div className="flex items-center gap-x-2">
+              <div className="flex flex-col items-start gap-x-2">
                 <div>
                   <Rating value={4.4} readOnly />
                 </div>
@@ -225,11 +275,22 @@ function checkout() {
           <div className="mt-5">
             <div className="flex items-center justify-between mb-3">
               <span className="text-[#90A3BF]">Total Price : </span>
-              <span>$100.00</span>
+              <span>
+                $
+                {productData.off_price
+                  ? productData.off_price
+                  : productData.final_price}
+              </span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-[#90A3BF]">Discount : </span>
-              <span>$10.00</span>
+              <span>
+                $
+                {productData.off_price
+                  ? productData.off_price - productData.final_price
+                  : 0}
+                .00
+              </span>
             </div>
           </div>
           <div className="bg-[#F6F7F9] py-3 px-6 rounded-lg flex items-center justify-between mt-4">
@@ -249,7 +310,14 @@ function checkout() {
                 Overall price and includes rental discount
               </p>
             </div>
-            <p className="text-[#1A202C] font-bold text-2xl">$90.00</p>
+            <p className="text-[#1A202C] font-bold text-2xl">
+              $
+              {productData.off_price
+                ? productData.off_price -
+                  (productData.off_price - productData.final_price)
+                : productData.final_price}
+              .00
+            </p>
           </div>
         </div>
       </div>

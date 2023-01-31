@@ -13,7 +13,9 @@ import Link from "next/link";
 import CarCart from "../../components/CarCart";
 
 function carId() {
-  const { query } = useRouter();
+  const {query} = useRouter();
+
+
   const selectedItem = carItems.find((item) => item.id == query.carId);
   console.log(selectedItem);
   return (
