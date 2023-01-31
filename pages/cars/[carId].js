@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import Rating from "@mui/material/Rating";
-import BannerDetail from "../../components/BannerDetail";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 import Car_Detail1 from "../../public/images/Car_Detail1.jpg";
 import Car_Detail2 from "../../public/images/Car_Detail2.jpg";
@@ -22,7 +21,7 @@ function carId() {
         <div className="md:w-1/2 w-full">
         <Image
               className="rounded-md"
-              src={Car_Detail1}
+              src={selectedItem?.img}
               alt="Car_Detail1 Image"
             />
           <div className="flex items-center justify-between mt-4">

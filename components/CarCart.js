@@ -32,7 +32,7 @@ function CarCart({sliceNubmer}) {
               )}
             </div>
             <div className="relative mb-10">
-              <Image className="mx-auto mt-14" src={Car1} alt="Car1" />
+              <Image className="mx-auto mt-5 object-cover rounded-lg !h-52" src={carItem.img} alt="Car1" />
               <span className="cart-shadow"></span>
             </div>
             <div className="flex items-center justify-around">
