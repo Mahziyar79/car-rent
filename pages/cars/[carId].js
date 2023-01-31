@@ -15,15 +15,16 @@ import CarCart from "../../components/CarCart";
 function carId() {
   const { query } = useRouter();
   const selectedItem = carItems.find((item) => item.id == query.carId);
+  console.log(selectedItem);
   return (
     <div className="container mx-auto xl:max-w-screen-2xl ">
       <div className="flex md:flex-row flex-col items-start my-7 gap-x-8 m-4">
         <div className="md:w-1/2 w-full">
-        <Image
-              className="rounded-md"
-              src={selectedItem?.img}
-              alt="Car_Detail1 Image"
-            />
+          <Image
+            className="rounded-md"
+            src={selectedItem?.img}
+            alt="Car_Detail1 Image"
+          />
           <div className="flex items-center justify-between mt-4">
             <Image
               className="rounded-md  object-cover w-[31%]"
@@ -103,9 +104,18 @@ function carId() {
               )}
             </div>
             <div>
-              <button className="md:py-4 md:px-7 px-4 py-2 bg-[#3563E9] rounded-md text-white scroll-effect">
-                Rental Now
-              </button>
+              {selectedItem && (
+                <Link
+                  href={{
+                    pathname: "/checkout",
+                    query: selectedItem,
+                  }}
+                >
+                  <button className="md:py-4 md:px-7 px-4 py-2 bg-[#3563E9] rounded-md text-white scroll-effect">
+                    Rental Now
+                  </button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -178,12 +188,14 @@ function carId() {
           </div>
         </div>
       </div>
-        <div className="flex items-center justify-between md:px-0 px-2 mt-14">
-          <p className="text-[#90A3BF]">Recomendation Car</p>
-          <Link href="/cars" className="text-[#3563E9]">View All</Link>
-        </div>
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-4">
-          <CarCart sliceNubmer={4}/>
+      <div className="flex items-center justify-between md:px-0 px-2 mt-14">
+        <p className="text-[#90A3BF]">Recomendation Car</p>
+        <Link href="/cars" className="text-[#3563E9]">
+          View All
+        </Link>
+      </div>
+      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-4">
+        <CarCart sliceNubmer={4} />
       </div>
     </div>
   );
