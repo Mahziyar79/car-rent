@@ -7,20 +7,22 @@ import Image from "next/image";
 import ProfileImage from "../../public/images/image-profile.png";
 import MenuBar from "./MenuBar";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 function Notifications() {
+  const cars = useSelector((state) => state.carReducer.cars);
   return (
     <div className="hidden md:flex md:gap-x-5 items-center">
-      <div>
+      <div className="relative">
         <Link href="/favourite">
           <HeartIcon className="h-8 w-8 text-gray-600 border border-gray-600 rounded-full p-1 hover:bg-gray-100 cursor-pointer scroll-effect" />
+          <span className="bg-red-600 text-white rounded-full text-xs absolute -top-1 -right-2 w-4 h-4 flex items-center justify-center">
+            {cars.filter((car) => car.is_like).length}
+          </span>
         </Link>
       </div>
-      <div className="relative">
+      <div>
         <BellAlertIcon className="h-8 w-8 text-gray-600 border border-gray-600 rounded-full p-1 hover:bg-gray-100 cursor-pointer scroll-effect" />
-        <span className="bg-red-600 text-white rounded-full text-xs absolute -top-1 -right-2 w-4 h-4 flex items-center justify-center">
-          1
-        </span>
       </div>
 
       <div>

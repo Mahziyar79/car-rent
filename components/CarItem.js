@@ -8,9 +8,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addLike } from "../redux/addCars/carSlice";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CarItem({ carItem }) {
   const dispatch = useDispatch();
+
+  const dispatchAddFavourite = () => {
+    dispatch(addLike(carItem.id));
+    if (carItem.is_like) {
+      toast.error("successfully deleted!");
+    } else {
+      toast.success("successfully added!");
+    }
+  };
   return (
     <section
       className="bg-white p-5 rounded-lg shadow-sm mx-2 md:mx-0"
@@ -23,12 +34,12 @@ function CarItem({ carItem }) {
         </div>
         {carItem.is_like ? (
           <HeartIconSolid
-            onClick={() => dispatch(addLike(carItem.id))}
+            onClick={() => dispatchAddFavourite()}
             className="scroll-effect h-6 w-6 text-red-500 cursor-pointer"
           />
         ) : (
           <HeartIcon
-            onClick={() => dispatch(addLike(carItem.id))}
+            onClick={() => dispatchAddFavourite()}
             className="scroll-effect h-6 w-6 text-[#90A3BF] cursor-pointer"
           />
         )}

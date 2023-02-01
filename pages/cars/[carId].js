@@ -14,6 +14,8 @@ import CarCart from "../../components/CarCart";
 import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 import { addLike } from "../../redux/addCars/carSlice";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function carId() {
   const { query } = useRouter();
@@ -21,7 +23,14 @@ function carId() {
   const cars = useSelector((state) => state.carReducer.cars);
 
   const selectedItem = cars.find((item) => item.id == query.carId);
-
+  const dispatchAddFavourite = () => {
+    dispatch(addLike(selectedItem.id));
+    if (selectedItem.is_like) {
+      toast.error("successfully deleted!");
+    } else {
+      toast.success("successfully added!");
+    }
+  };
   return (
     <>
       <Head>
@@ -74,12 +83,12 @@ function carId() {
               <div>
                 {selectedItem?.is_like ? (
                   <HeartIconSolid
-                    onClick={() => dispatch(addLike(selectedItem.id))}
+                    onClick={() => dispatchAddFavourite()}
                     className="scroll-effect h-7 w-7 text-red-500 cursor-pointer"
                   />
                 ) : (
                   <HeartIcon
-                    onClick={() => dispatch(addLike(selectedItem.id))}
+                    onClick={() => dispatchAddFavourite()}
                     className="scroll-effect h-7 w-7 text-[#90A3BF] cursor-pointer"
                   />
                 )}
