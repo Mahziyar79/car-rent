@@ -16,7 +16,7 @@ export const carItems = [
     passengers: "2 People",
     final_price: "107.00",
     img: Car_1,
-    is_like: true,
+    is_like: false,
     id: 1,
   },
   {
@@ -39,7 +39,7 @@ export const carItems = [
     passengers: "4 People",
     final_price: "96.00",
     img: Car_3,
-    is_like: true,
+    is_like: false,
     id: 3,
   },
   {
@@ -62,7 +62,7 @@ export const carItems = [
     passengers: "6 People",
     final_price: "80.00",
     img: Car_5,
-    is_like: true,
+    is_like: false,
     id: 5,
   },
   {
@@ -96,7 +96,7 @@ export const carItems = [
     final_price: "87.00",
     off_price: "94.00",
     img: Car_8,
-    is_like: true,
+    is_like: false,
     id: 8,
   },
 ];
