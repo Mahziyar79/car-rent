@@ -17,6 +17,7 @@ export const carItems = [
     final_price: "107.00",
     img: Car_1,
     is_like: false,
+    rating : 4 ,
     id: 1,
   },
   {
@@ -29,6 +30,7 @@ export const carItems = [
     off_price: "100.00",
     img: Car_2,
     is_like: false,
+    rating : 5 ,
     id: 2,
   },
   {
@@ -40,6 +42,7 @@ export const carItems = [
     final_price: "96.00",
     img: Car_3,
     is_like: false,
+    rating : 3 ,
     id: 3,
   },
   {
@@ -52,6 +55,7 @@ export const carItems = [
     off_price: "80.00",
     img: Car_4,
     is_like: false,
+    rating : 5 ,
     id: 4,
   },
   {
@@ -63,6 +67,7 @@ export const carItems = [
     final_price: "80.00",
     img: Car_5,
     is_like: false,
+    rating : 3 ,
     id: 5,
   },
   {
@@ -74,6 +79,7 @@ export const carItems = [
     final_price: "94.00",
     img: Car_6,
     is_like: false,
+    rating : 4 ,
     id: 6,
   },
   {
@@ -85,6 +91,7 @@ export const carItems = [
     final_price: "74.00",
     img: Car_7,
     is_like: false,
+    rating : 2 ,
     id: 7,
   },
   {
@@ -97,6 +104,7 @@ export const carItems = [
     off_price: "94.00",
     img: Car_8,
     is_like: false,
+    rating : 5 ,
     id: 8,
   },
 ];

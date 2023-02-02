@@ -35,10 +35,10 @@ export default function MenuBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-      <ListItem>
+        <ListItem>
           <ListItemButton>
             <Link href="/">
-            <Image
+              <Image
                 className="scroll-effect"
                 src={Logo}
                 alt="Logo Image"
@@ -59,6 +59,13 @@ export default function MenuBar() {
           <ListItemButton>
             <Link href="/cars">
               <ListItemText primary="Cars" />
+            </Link>
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton>
+            <Link href="/favourite">
+              <ListItemText primary="Favourite" />
             </Link>
           </ListItemButton>
         </ListItem>

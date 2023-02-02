@@ -73,7 +73,7 @@ function carId() {
                 </h1>
                 <div className="flex items-center gap-x-2">
                   <div>
-                    <Rating value={4.4} readOnly />
+                    <Rating value={parseInt(selectedItem?.rating)} readOnly />
                   </div>
                   <div>
                     <p className="text-sm text-[#596780]">440+ Reviewer</p>
@@ -139,7 +139,7 @@ function carId() {
                   <Link
                     href={{
                       pathname: "/checkout",
-                      query: selectedItem,
+                      query: {id:selectedItem.id},
                     }}
                   >
                     <button className="md:py-4 md:px-7 px-4 py-2 bg-[#3563E9] rounded-md text-white scroll-effect">

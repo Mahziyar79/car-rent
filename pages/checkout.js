@@ -1,16 +1,17 @@
 import Image from "next/image";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 import Rating from "@mui/material/Rating";
-import Car_1 from "../public/images/Car_1.jpg";
 import Visa from "../public/images/Visa.png";
 import { Divider } from "@mui/material";
-import Head from "next/head";
+import { useSelector } from "react-redux";
 
 function checkout() {
   const router = useRouter();
-  const productData = router.query;
-
+  const cars = useSelector((state) => state.carReducer.cars);
+  const carData = cars.find((car) => car.id == router.query.id);
+console.log(carData?.rating);
   return (
     <>
       <Head>
@@ -261,18 +262,18 @@ function checkout() {
             <div className="flex items-center gap-x-4 mt-5">
               <Image
                 className="rounded-md object-cover"
-                src={Car_1}
-                alt="Car_1 Image"
+                src={carData?.img}
+                alt="Car Image"
                 width={150}
                 height={150}
               />
               <div>
                 <h3 className="text-xl xl:text-2xl font-bold">
-                  {productData?.name}
+                  {carData?.name}
                 </h3>
                 <div className="flex flex-col items-start gap-x-2">
                   <div>
-                    <Rating value={4.4} readOnly />
+                    <Rating value={parseInt(carData?.rating)} readOnly />
                   </div>
                   <div>
                     <p className="text-sm text-[#596780]">440+ Reviewer</p>
@@ -286,17 +287,17 @@ function checkout() {
                 <span className="text-[#90A3BF]">Total Price : </span>
                 <span>
                   $
-                  {productData.off_price
-                    ? productData.off_price
-                    : productData.final_price}
+                  {carData?.off_price
+                    ? carData?.off_price
+                    : carData?.final_price}
                 </span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-[#90A3BF]">Discount : </span>
                 <span>
                   $
-                  {productData.off_price
-                    ? productData.off_price - productData.final_price
+                  {carData?.off_price
+                    ? carData?.off_price - carData?.final_price
                     : 0}
                   .00
                 </span>
@@ -321,11 +322,10 @@ function checkout() {
               </div>
               <p className="text-[#1A202C] font-bold text-2xl">
                 $
-                {productData.off_price
-                  ? productData.off_price -
-                    (productData.off_price - productData.final_price)
-                  : productData.final_price}
-                .00
+                {carData?.off_price
+                  ? carData?.off_price -
+                    (carData?.off_price - carData?.final_price)
+                  : carData?.final_price}
               </p>
             </div>
           </div>

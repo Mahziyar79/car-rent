@@ -22,6 +22,7 @@ function CarItem({ carItem }) {
       toast.success("successfully added!");
     }
   };
+  
   return (
     <section
       className="bg-white p-5 rounded-lg shadow-sm mx-2 md:mx-0"
