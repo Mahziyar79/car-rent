@@ -7,7 +7,7 @@ import Visa from "../public/images/Visa.png";
 import { Divider } from "@mui/material";
 import { useSelector } from "react-redux";
 
-function checkout() {
+function Checkout() {
   const router = useRouter();
   const cars = useSelector((state) => state.carReducer.cars);
   const carData = cars.find((car) => car.id == router.query.id);
@@ -334,4 +334,4 @@ function checkout() {
   );
 }
 
-export default checkout;
+export default Checkout;

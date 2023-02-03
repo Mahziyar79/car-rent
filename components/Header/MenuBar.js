@@ -7,6 +7,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import Logo from "../../public/images/Logo.png";
 import ListItemText from "@mui/material/ListItemText";
+import { HomeIcon , TruckIcon , HeartIcon } from "@heroicons/react/24/outline";
 import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Image from "next/image";
@@ -49,25 +50,28 @@ export default function MenuBar() {
           </ListItemButton>
         </ListItem>
         <ListItem>
-          <ListItemButton>
-            <Link href="/">
+          <Link className="w-full" href="/">
+            <ListItemButton className="flex gap-x-2 items-center">
+              <HomeIcon className="h-6 w-6 text-[#90A3BF]" />
               <ListItemText primary="Home" />
-            </Link>
-          </ListItemButton>
+            </ListItemButton>
+          </Link>
         </ListItem>
         <ListItem>
-          <ListItemButton>
-            <Link href="/cars">
+          <Link className="w-full" href="/cars">
+            <ListItemButton className="flex gap-x-2 items-center">
+              <TruckIcon className="h-6 w-6 text-[#90A3BF]" />
               <ListItemText primary="Cars" />
-            </Link>
-          </ListItemButton>
+            </ListItemButton>
+          </Link>
         </ListItem>
         <ListItem>
-          <ListItemButton>
-            <Link href="/favourite">
+          <Link className="w-full" href="/favourite">
+            <ListItemButton className="flex gap-x-2 items-center">
+              <HeartIcon className="h-6 w-6 text-[#90A3BF]" />
               <ListItemText primary="Favourite" />
-            </Link>
-          </ListItemButton>
+            </ListItemButton>
+          </Link>
         </ListItem>
       </List>
     </Box>

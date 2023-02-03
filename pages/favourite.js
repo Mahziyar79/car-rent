@@ -4,7 +4,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import CarItem from "../components/CarItem";
 
-function favourite() {
+function Favourite() {
   const cars = useSelector((state) => state.carReducer.cars);
   const isLikedItems = cars?.filter((car) => car.is_like);
   if (!isLikedItems.length) {
@@ -37,4 +37,4 @@ function favourite() {
   );
 }
 
-export default favourite;
+export default Favourite;

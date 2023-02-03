@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon , AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
@@ -30,7 +29,7 @@ function SearchBar() {
           className="pl-12 p-2 bg-transparent outline-none font-light"
           placeholder="search somthing here"
         />
-        <AdjustmentsHorizontalIcon className="scroll-effect cursor-pointer h-6 w-6 absolute top-2 right-3 text-[#9caaba]" />
+        <AdjustmentsHorizontalIcon className="h-6 w-6 absolute top-2 right-3 text-[#9caaba]" />
         <MagnifyingGlassIcon
           onClick={() => goToSearchPage()}
           className="scroll-effect h-6 w-6 absolute top-2 left-2 text-[#C3D4E9]"

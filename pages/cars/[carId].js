@@ -17,7 +17,7 @@ import { addLike } from "../../redux/addCars/carSlice";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function carId() {
+function CarId() {
   const { query } = useRouter();
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.carReducer.cars);
@@ -97,9 +97,9 @@ function carId() {
             {/* desc */}
             <div>
               <p className="text-[#596780] leading-8 mt-5">
-                NISMO has become the embodiment of Nissan's outstanding
+                {`NISMO has become the embodiment of Nissan's outstanding
                 performance, inspired by the most unforgiving proving ground,
-                the "race track".
+                the "race track".`}
               </p>
             </div>
             {/* Detail */}
@@ -233,4 +233,4 @@ function carId() {
   );
 }
 
-export default carId;
+export default CarId;
