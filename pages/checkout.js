@@ -11,7 +11,6 @@ function checkout() {
   const router = useRouter();
   const cars = useSelector((state) => state.carReducer.cars);
   const carData = cars.find((car) => car.id == router.query.id);
-console.log(carData?.rating);
   return (
     <>
       <Head>
