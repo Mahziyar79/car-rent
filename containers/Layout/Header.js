@@ -9,7 +9,7 @@ import MenuBar from "../../components/Header/MenuBar";
 
 function Header() {
   return (
-    <header className=" bg-white py-5 px-10 shadow-sm">
+    <header className=" bg-white py-5 px-10 shadow-sm md:sticky top-0 z-50">
       <div className="container mx-auto xl:max-w-screen-2xl flex md:flex-row flex-col items-center justify-between">
         <div className="md:w-fit w-full">
           <div className="flex justify-between items-center ">

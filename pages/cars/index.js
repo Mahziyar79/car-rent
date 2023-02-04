@@ -5,8 +5,10 @@ import SearchCar from "../../components/SearchCar";
 import Slider from "@mui/material/Slider";
 import GetLowHighPrice from "../../common/GetLowHighPrice";
 import Head from "next/head";
+import { useSelector } from "react-redux";
+import CarItem from "../../components/CarItem";
 
-function index() {
+function CarCategoryPage() {
   //   const repetitiveItem = (item) => {
   //     let counter = [];
 
@@ -16,9 +18,19 @@ function index() {
   //     });
   //     return counter;
   //   };
-  const [value, setValue] = useState([0, GetLowHighPrice().max]);
+  const cars = useSelector((state) => state.carReducer.cars);
+  const [carsFiltered, setCarsFiltered] = useState(cars);
+  const [priceValue, setPriceValue] = useState([0, GetLowHighPrice().max]);
   const rangeSelector = (event, newValue) => {
-    setValue(newValue);
+    setPriceValue(newValue);
+  };
+
+  const priceFilter = () => {
+    const filteredItems = cars.filter(
+      (car) =>
+        car.final_price >= priceValue[0] && car.final_price <= priceValue[1]
+    );
+    setCarsFiltered(filteredItems);
   };
 
   return (
@@ -53,15 +65,18 @@ function index() {
           <p className="mb-12 mt-10 text-gray-400">Select your Price Range :</p>
 
           <Slider
-            value={value}
+            value={priceValue}
             onChange={rangeSelector}
             valueLabelDisplay="on"
             step={5}
             max={GetLowHighPrice().max}
           />
-          <p className="text-sm">Start Price : {value[0]} $</p>
-          <p className="text-sm my-2">Final Price : {value[1]} $</p>
-          <button className="bg-[#3563E9] w-full text-sm rounded-md border-2 border-[#3563E9] text-white p-1 hover:bg-white hover:text-[#3563E9] transition-all duration-200">
+          <p className="text-sm">Start Price : {priceValue[0]} $</p>
+          <p className="text-sm my-2">Final Price : {priceValue[1]} $</p>
+          <button
+            onClick={() => priceFilter()}
+            className="bg-[#3563E9] w-full text-sm rounded-md border-2 border-[#3563E9] text-white p-1 hover:bg-white hover:text-[#3563E9] transition-all duration-200"
+          >
             SUBMIT
           </button>
         </div>
@@ -69,7 +84,9 @@ function index() {
         <div className="pr-3 lg:col-span-4 col-span-5">
           <SearchCar />
           <div className="container mx-auto xl:max-w-screen-2xl grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-            <CarCart />
+            {carsFiltered?.map((carItem) => {
+              return <CarItem key={carItem.id} carItem={carItem} />;
+            })}
           </div>
         </div>
       </div>
@@ -77,4 +94,4 @@ function index() {
   );
 }
 
-export default index;
+export default CarCategoryPage;
