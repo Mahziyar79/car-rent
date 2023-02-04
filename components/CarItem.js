@@ -11,7 +11,7 @@ import { addLike } from "../redux/addCars/carSlice";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function CarItem({ carItem }) {
+function CarItem({ carItem , heartIsShow }) {
   const dispatch = useDispatch();
 
   const dispatchAddFavourite = () => {
@@ -33,7 +33,7 @@ function CarItem({ carItem }) {
           <h4 className="font-bold text-xl">{carItem.name}</h4>
           <span className="text-[#90A3BF] text-sm">{carItem.category}</span>
         </div>
-        {carItem.is_like ? (
+        {heartIsShow ? carItem.is_like ? (
           <HeartIconSolid
             onClick={() => dispatchAddFavourite()}
             className="scroll-effect h-6 w-6 text-red-500 cursor-pointer"
@@ -43,7 +43,7 @@ function CarItem({ carItem }) {
             onClick={() => dispatchAddFavourite()}
             className="scroll-effect h-6 w-6 text-[#90A3BF] cursor-pointer"
           />
-        )}
+        ) : ""}
       </div>
       <div className="relative mb-10">
         <Image
@@ -70,7 +70,7 @@ function CarItem({ carItem }) {
       <div className="flex items-center justify-around mt-6">
         <div className="flex flex-col">
           <p className="font-bold text-2xl">
-            ${carItem.final_price} /{" "}
+            ${carItem.final_price}.00 /{" "}
             <span className="text-xs text-[#90A3BF]">day</span>
           </p>
           {carItem.off_price && (

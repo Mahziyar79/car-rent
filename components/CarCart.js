@@ -8,7 +8,7 @@ function CarCart({ sliceNubmer }) {
   return (
     <>
       {cars?.slice(0, sliceNubmer).map((carItem) => {
-        return <CarItem key={carItem.id} carItem={carItem} />;
+        return <CarItem heartIsShow={true} key={carItem.id} carItem={carItem} />;
       })}
     </>
   );

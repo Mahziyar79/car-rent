@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SelectBox from "../../common/SelectBox";
-import CarCart from "../../components/CarCart";
+import { categories } from "../../server/categories";
 import SearchCar from "../../components/SearchCar";
 import Slider from "@mui/material/Slider";
 import GetLowHighPrice from "../../common/GetLowHighPrice";
@@ -21,8 +21,15 @@ function CarCategoryPage() {
   const cars = useSelector((state) => state.carReducer.cars);
   const [carsFiltered, setCarsFiltered] = useState(cars);
   const [priceValue, setPriceValue] = useState([0, GetLowHighPrice().max]);
+  const [typeValue, setTypeValue] = useState([]);
+
   const rangeSelector = (event, newValue) => {
     setPriceValue(newValue);
+  };
+
+  const resetFilter = () => {
+    setCarsFiltered(cars);
+    setPriceValue([0, GetLowHighPrice().max]);
   };
 
   const priceFilter = () => {
@@ -31,6 +38,31 @@ function CarCategoryPage() {
         car.final_price >= priceValue[0] && car.final_price <= priceValue[1]
     );
     setCarsFiltered(filteredItems);
+  };
+
+  const typeFilter = (data) => {
+    if(data.length === 0){
+      setCarsFiltered(cars)
+      return
+    }
+    const filteredTypeItems = cars.filter(el => {
+      return data.indexOf(el.category) !== -1;
+   });
+   setCarsFiltered(filteredTypeItems)
+  };
+
+  const setTypeArray = (name) => {
+    const newArray = [...typeValue];
+    const index = typeValue.indexOf(name);
+    if (index === -1) {
+      newArray.push(name);
+    } else {
+      newArray.splice(index, 1);
+    }
+    setTypeValue(newArray);
+    console.log(newArray);
+    typeFilter(newArray);
+    
   };
 
   return (
@@ -44,23 +76,20 @@ function CarCategoryPage() {
         <div className="hidden lg:block bg-white p-8 col-span-1 shadow-sm">
           <div>
             <p className="mb-3 text-gray-400">TYPE</p>
-            <SelectBox title="Sport" quantity={2} />
+            {/* <SelectBox title="Sport" quantity={2} />
             <SelectBox title="Sedan" quantity={1} />
             <SelectBox title="SUV" quantity={4} />
-            <SelectBox title="Hatchback" quantity={1} />
-            {/* {categories?.map((cat) => {
-            return (
-              <SelectBox
-              key={cat.id}
-              title={cat.category}
-                quantity={cat.quantity}
-              />
-            );
-          })} */}
-            <p className="mb-3 mt-8 text-gray-400">CAPACITY</p>
-            <SelectBox title="4 People" quantity={2} />
-            <SelectBox title="2 People" quantity={2} />
-            <SelectBox title="6 People" quantity={4} />
+            <SelectBox title="Hatchback" quantity={1} /> */}
+            {categories?.map((cat) => {
+              return (
+                <SelectBox
+                  key={cat.id}
+                  title={cat.category}
+                  quantity={cat.quantity}
+                  setTypeArray={setTypeArray}
+                />
+              );
+            })}
           </div>
           <p className="mb-12 mt-10 text-gray-400">Select your Price Range :</p>
 
@@ -79,13 +108,25 @@ function CarCategoryPage() {
           >
             SUBMIT
           </button>
+          <button
+            onClick={() => resetFilter()}
+            className="bg-gray-500 w-full text-sm mt-3 rounded-md border-2 border-gray-500 text-white p-1 hover:bg-white hover:text-gray-500 transition-all duration-200"
+          >
+            RESET
+          </button>
         </div>
 
         <div className="pr-3 lg:col-span-4 col-span-5">
           <SearchCar />
           <div className="container mx-auto xl:max-w-screen-2xl grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
             {carsFiltered?.map((carItem) => {
-              return <CarItem key={carItem.id} carItem={carItem} />;
+              return (
+                <CarItem
+                  heartIsShow={false}
+                  key={carItem.id}
+                  carItem={carItem}
+                />
+              );
             })}
           </div>
         </div>
