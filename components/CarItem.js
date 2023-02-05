@@ -25,7 +25,7 @@ function CarItem({ carItem , heartIsShow }) {
   
   return (
     <section
-      className="bg-white p-5 rounded-lg shadow-sm mx-2 md:mx-0"
+      className="bg-white dark:bg-[#243137] p-5 rounded-lg shadow-sm mx-2 md:mx-0 dark:text-white"
       key={carItem.id}
     >
       <div className="flex items-start justify-between">

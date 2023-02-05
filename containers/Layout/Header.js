@@ -8,6 +8,7 @@ import SearchBar from "../../components/Header/SearchBar";
 import Link from "next/link";
 import MenuBar from "../../components/Header/MenuBar";
 import { useSelector } from "react-redux";
+import DarkMode from "../../components/Header/DarkMode";
 
 function Header() {
   const darkMode = useSelector((state) => state.carReducer.darkMode);
@@ -35,16 +36,11 @@ function Header() {
                   height={150}
                 />
               )}
-              
             </Link>
             <div className="flex items-center gap-x-3">
-              <Image
-                className="md:hidden"
-                src={ProfileImage}
-                alt="Profile Image"
-                width={28}
-                height={28}
-              />
+              <div className="md:hidden">
+                <DarkMode />
+              </div>
               <div className="md:hidden">
                 <MenuBar />
               </div>

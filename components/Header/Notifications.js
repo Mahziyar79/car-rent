@@ -11,9 +11,9 @@ function Notifications() {
   const cars = useSelector((state) => state.carReducer.cars);
   return (
     <div className="hidden md:flex md:gap-x-5 items-center">
-        <div>
-          <DarkMode />
-        </div>
+      <div>
+        <DarkMode />
+      </div>
       <div className="relative">
         <Link href="/favourite">
           <HeartIcon className="h-8 w-8 text-gray-600 border border-gray-600 dark:text-white dark:border-white dark:hover:bg-transparent rounded-full p-1 hover:bg-gray-100 cursor-pointer scroll-effect" />
@@ -22,7 +22,7 @@ function Notifications() {
           </span>
         </Link>
       </div>
-      
+
       <div>
         <Image
           className="max-w-none scroll-effect cursor-pointer"

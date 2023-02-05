@@ -1,20 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useSelector } from "react-redux";
 import LogoImage from "../../public/images/Logo.png";
+import LogoDarkImage from "../../public/images/LogoDark.png";
 
 function Footer() {
+  const darkMode = useSelector((state) => state.carReducer.darkMode);
+
   return (
-    <footer className="bg-white px-10 py-14 md:py-5 shadow-sm mt-20">
+    <footer className="bg-white dark:bg-[#243137] px-10 py-14 md:py-5 shadow-sm mt-20 dark:text-white">
       <div className="container mx-auto xl:max-w-screen-2xl flex md:flex-row flex-col items-center justify-between border-b-2 md:py-10">
         <div className="grow flex flex-col items-center md:items-start mb-10 md:mb-0">
-          <Image
-            className="scroll-effect mb-5"
-            src={LogoImage}
-            alt="Logo Image"
-            width={140}
-            height={140}
-          />
+          {darkMode ? (
+            <Image
+              className="scroll-effect mb-5"
+              src={LogoDarkImage}
+              alt="Logo Image"
+              width={140}
+              height={140}
+            />
+          ) : (
+            <Image
+              className="scroll-effect mb-5"
+              src={LogoImage}
+              alt="Logo Image"
+              width={140}
+              height={140}
+            />
+          )}
+
           <p className="md:w-80 md:text-left text-center">
             Our vision is to provide convenience and help increase your sales
             business.
@@ -24,7 +39,7 @@ function Footer() {
           <div className="py-5">
             <h2 className="font-bold text-xl mb-4">About</h2>
             <span className="mb-4 w-7 h-[2px] bg-gray-200 block"></span>
-            <ul className="flex flex-col gap-y-5 text-[#4b4b4b]">
+            <ul className="flex flex-col gap-y-5 text-[#4b4b4b] dark:text-white">
               <Link href="#">
                 <li>How it works</li>
               </Link>
@@ -42,7 +57,7 @@ function Footer() {
           <div className="py-5">
             <h2 className="font-bold text-xl mb-6">Community</h2>
             <span className="mb-4 w-7 h-[2px] bg-gray-200 block"></span>
-            <ul className="flex flex-col gap-y-5 text-[#4b4b4b]">
+            <ul className="flex flex-col gap-y-5 text-[#4b4b4b] dark:text-white">
               <Link href="#">
                 <li>Events</li>
               </Link>
@@ -60,7 +75,7 @@ function Footer() {
           <div className="py-5">
             <h2 className="font-bold text-xl mb-6">Socials</h2>
             <span className="mb-4 w-7 h-[2px] bg-gray-200 block"></span>
-            <ul className="flex flex-col gap-y-5 text-[#4b4b4b]">
+            <ul className="flex flex-col gap-y-5 text-[#4b4b4b] dark:text-white">
               <Link href="#">
                 <li>Discord</li>
               </Link>
