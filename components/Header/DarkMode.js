@@ -24,7 +24,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       },
       "& + .MuiSwitch-track": {
         opacity: 1,
-        backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+        backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#3563E9",
       },
     },
   },
@@ -55,7 +55,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
 export default function DarkMode() {
   const darkModeDispatch = useDispatch();
-  const testLog = (e) => {
+  const DarkModeFunc = (e) => {
     darkModeDispatch(darkMode(e.target.checked));
   };
 
@@ -63,7 +63,7 @@ export default function DarkMode() {
     <FormGroup className="-mr-5">
       <FormControlLabel
         control={<MaterialUISwitch />}
-        onChange={(e) => testLog(e)}
+        onChange={(e) => DarkModeFunc(e)}
       />
     </FormGroup>
   );

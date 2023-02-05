@@ -16,7 +16,7 @@ function Notifications() {
         </div>
       <div className="relative">
         <Link href="/favourite">
-          <HeartIcon className="h-8 w-8 text-gray-600 border border-gray-600 rounded-full p-1 hover:bg-gray-100 cursor-pointer scroll-effect" />
+          <HeartIcon className="h-8 w-8 text-gray-600 border border-gray-600 dark:text-white dark:border-white dark:hover:bg-transparent rounded-full p-1 hover:bg-gray-100 cursor-pointer scroll-effect" />
           <span className="bg-red-600 text-white rounded-full text-xs absolute -top-1 -right-2 w-4 h-4 flex items-center justify-center">
             {cars.filter((car) => car.is_like).length}
           </span>

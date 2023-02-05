@@ -5,14 +5,22 @@ import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import Logo from "../../public/images/Logo.png";
+import LogoImg from "../../public/images/Logo.png";
+import LogoDarkImg from "../../public/images/LogoDark.png";
 import ListItemText from "@mui/material/ListItemText";
-import { HomeIcon , TruckIcon , HeartIcon } from "@heroicons/react/24/outline";
-import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
+import {
+  HomeIcon,
+  TruckIcon,
+  HeartIcon,
+  Bars3BottomRightIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 export default function MenuBar() {
+  const darkMode = useSelector((state) => state.carReducer.darkMode);
+
   const [state, setState] = React.useState({
     right: false,
   });
@@ -39,13 +47,23 @@ export default function MenuBar() {
         <ListItem>
           <ListItemButton>
             <Link href="/">
-              <Image
-                className="scroll-effect"
-                src={Logo}
-                alt="Logo Image"
-                width={150}
-                height={150}
-              />
+            {darkMode ? (
+                <Image
+                  className="scroll-effect"
+                  src={LogoDarkImg}
+                  alt="Logo Image"
+                  width={150}
+                  height={150}
+                />
+              ) : (
+                <Image
+                  className="scroll-effect"
+                  src={LogoImg}
+                  alt="Logo Image"
+                  width={150}
+                  height={150}
+                />
+              )}
             </Link>
           </ListItemButton>
         </ListItem>
@@ -82,15 +100,32 @@ export default function MenuBar() {
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-            <Bars3BottomRightIcon className="h-8 w-8 text-gray-600 border border-none rounded-full hover:bg-gray-100 cursor-pointer scroll-effect" />
+            <Bars3BottomRightIcon className="h-8 w-8 text-gray-600 dark:text-white dark:hover:bg-transparent border border-none rounded-full hover:bg-gray-100 cursor-pointer scroll-effect" />
           </Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
+          {darkMode ? (
+            <Drawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+              PaperProps={{
+                sx: {
+                  backgroundColor: "#243137",
+                  color: "white",
+                }
+              }}
+            >
+              {list(anchor)}
+            </Drawer>
+          ) : (
+            <Drawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+            >
+              {list(anchor)}
+            </Drawer>
+          )}
+          
         </React.Fragment>
       ))}
     </div>
