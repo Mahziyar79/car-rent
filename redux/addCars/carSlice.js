@@ -3,6 +3,7 @@ import { carItems } from "../../server/cartItems";
 
 const initialState = {
   cars: carItems,
+  darkMode :false
 };
 export const carSlice = createSlice({
   name: "car",
@@ -14,9 +15,12 @@ export const carSlice = createSlice({
       isCarLiked.is_like = !isCarLiked.is_like;
       
     },
+    darkMode : (state,action) => {
+      state.darkMode = action.payload
+    }
   },
 });
 
-export const { addLike } = carSlice.actions;
+export const { addLike , darkMode } = carSlice.actions;
 
 export default carSlice.reducer;

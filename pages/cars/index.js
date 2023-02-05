@@ -60,9 +60,8 @@ function CarCategoryPage() {
       newArray.splice(index, 1);
     }
     setTypeValue(newArray);
-    console.log(newArray);
     typeFilter(newArray);
-    
+  
   };
 
   return (
@@ -117,8 +116,8 @@ function CarCategoryPage() {
         </div>
 
         <div className="pr-3 lg:col-span-4 col-span-5">
-          <SearchCar />
-          <div className="container mx-auto xl:max-w-screen-2xl grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+          
+          <div className="container mx-auto xl:max-w-screen-2xl grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-5">
             {carsFiltered?.map((carItem) => {
               return (
                 <CarItem

@@ -31,7 +31,7 @@ function Favourite() {
   return (
     <div className="container mx-auto xl:max-w-screen-2xl grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-4">
       {isLikedItems.map((carItem) => {
-        return <CarItem key={carItem.id} carItem={carItem} />;
+        return <CarItem heartIsShow={true} key={carItem.id} carItem={carItem} />;
       })}
     </div>
   );

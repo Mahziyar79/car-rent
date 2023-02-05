@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import Ads1 from "../public/images/BgAds1.png";
 import Ads2 from "../public/images/BgAds2.png";
@@ -21,9 +22,11 @@ function BannerHome() {
               Ease of doing a car rental safely and reliably. Of course at a low
               price.
             </p>
-            <button className="md:py-3 md:px-5 p-2 bg-[#3563E9] rounded-md text-white text-sm">
-              Rental Car
-            </button>
+            <Link href="/cars">
+              <button className="md:py-3 md:px-5 p-2 bg-[#3563E9] rounded-md text-white text-sm">
+                Rental Car
+              </button>
+            </Link>
           </div>
         </div>
         <div className="grow relative">
@@ -34,14 +37,17 @@ function BannerHome() {
           />
           <div className="text-white absolute top-5 md:top-10 left-8 w-2/3 xl:w-1/2">
             <h2 className="text-xl xl:text-4xl">
-            Easy way to rent a car at a low price
+              Easy way to rent a car at a low price
             </h2>
             <p className="font-light text-sm md:text-sm lg:text-base my-3 xl:my-8">
-            Providing cheap car rental services and safe and comfortable facilities.
+              Providing cheap car rental services and safe and comfortable
+              facilities.
             </p>
-            <button className="md:py-3 md:px-5 p-2 bg-[#54A6FF] rounded-md text-white text-sm">
-              Rental Car
-            </button>
+            <Link href="/cars">
+              <button className="md:py-3 md:px-5 p-2 bg-[#54A6FF] rounded-md text-white text-sm">
+                Rental Car
+              </button>
+            </Link>
           </div>
         </div>
       </div>

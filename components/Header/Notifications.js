@@ -1,18 +1,19 @@
 import React from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
-import { BellAlertIcon } from "@heroicons/react/24/outline";
-import { Cog6ToothIcon } from "@heroicons/react/24/outline";
-import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import ProfileImage from "../../public/images/image-profile.png";
 import MenuBar from "./MenuBar";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import DarkMode from "./DarkMode";
 
 function Notifications() {
   const cars = useSelector((state) => state.carReducer.cars);
   return (
     <div className="hidden md:flex md:gap-x-5 items-center">
+        <div>
+          <DarkMode />
+        </div>
       <div className="relative">
         <Link href="/favourite">
           <HeartIcon className="h-8 w-8 text-gray-600 border border-gray-600 rounded-full p-1 hover:bg-gray-100 cursor-pointer scroll-effect" />
@@ -21,13 +22,7 @@ function Notifications() {
           </span>
         </Link>
       </div>
-      <div>
-        <BellAlertIcon className="h-8 w-8 text-gray-600 border border-gray-600 rounded-full p-1 hover:bg-gray-100 cursor-pointer scroll-effect" />
-      </div>
-
-      <div>
-        <Cog6ToothIcon className="h-8 w-8 text-gray-600 border border-gray-600 rounded-full p-1 hover:bg-gray-100 cursor-pointer scroll-effect" />
-      </div>
+      
       <div>
         <Image
           className="max-w-none scroll-effect cursor-pointer"
