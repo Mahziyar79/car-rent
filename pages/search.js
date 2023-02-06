@@ -14,7 +14,7 @@ function Search() {
 
   return (
     <div className="container mx-auto xl:max-w-screen-2xl mt-8">
-      <h2 className="text-center text-2xl mb-4">
+      <h2 className="text-center text-2xl mb-4 dark:text-white">
         You Searched for : <span className="font-bold">{search}</span>
       </h2>
 
@@ -25,7 +25,7 @@ function Search() {
           })
         ) : (
           <div className="flex flex-col items-center justify-center col-span-4 md:min-h-[240px]">
-            <h2 className="font-bold text-xl text-center col-span-4 mt-10">{`Not Found Any Car :(`}</h2>
+            <h2 className="font-bold text-xl text-center col-span-4 mt-10 dark:text-white">{`Not Found Any Car :(`}</h2>
             <Link href="/">
               <button className="md:py-3 md:px-4 p-2 bg-[#3563E9] rounded-md text-white mt-5">
                 Back to Homepage

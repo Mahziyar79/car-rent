@@ -26,7 +26,7 @@ function SearchBar() {
           type="text"
           onChange={(e) => setSearchValue(e.target.value)}
           value={searchValue}
-          className="pl-12 p-2 bg-transparent outline-none font-light"
+          className="pl-12 p-2 bg-transparent outline-none font-light dark:text-white"
           placeholder="search somthing here"
         />
         <AdjustmentsHorizontalIcon className="h-6 w-6 absolute top-2 right-3 text-[#9caaba]" />
