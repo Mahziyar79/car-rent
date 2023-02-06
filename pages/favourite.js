@@ -16,7 +16,7 @@ function Favourite() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className="container mx-auto xl:max-w-screen-2xl flex flex-col gap-y-6 items-center justify-center mt-10 min-h-[300px] p-4">
-          <h2 className="font-bold text-2xl text-center">
+          <h2 className="font-bold text-2xl text-center dark:text-white">
             You Have not Added Any Cars to your Favorites List
           </h2>
           <Link href="/">

@@ -9,15 +9,6 @@ import { useSelector } from "react-redux";
 import CarItem from "../../components/CarItem";
 
 function CarCategoryPage() {
-  //   const repetitiveItem = (item) => {
-  //     let counter = [];
-
-  //     carItems.forEach(function (obj) {
-  //       var key = JSON.stringify(obj[item]);
-  //       counter[key] = (counter[key] || 0) + 1;
-  //     });
-  //     return counter;
-  //   };
   const cars = useSelector((state) => state.carReducer.cars);
   const [carsFiltered, setCarsFiltered] = useState(cars);
   const [priceValue, setPriceValue] = useState([0, GetLowHighPrice().max]);
@@ -72,13 +63,9 @@ function CarCategoryPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="grid grid-cols-5 gap-5">
-        <div className="hidden lg:block bg-white p-8 col-span-1 shadow-sm">
+        <div className="hidden lg:block bg-white dark:bg-[#243137] dark:text-white p-8 col-span-1 shadow-sm rounded-b-md">
           <div>
-            <p className="mb-3 text-gray-400">TYPE</p>
-            {/* <SelectBox title="Sport" quantity={2} />
-            <SelectBox title="Sedan" quantity={1} />
-            <SelectBox title="SUV" quantity={4} />
-            <SelectBox title="Hatchback" quantity={1} /> */}
+            <p className="mb-3 text-gray-400 dark:text-white">TYPE</p>
             {categories?.map((cat) => {
               return (
                 <SelectBox
@@ -90,7 +77,7 @@ function CarCategoryPage() {
               );
             })}
           </div>
-          <p className="mb-12 mt-10 text-gray-400">Select your Price Range :</p>
+          <p className="mb-12 mt-10 text-gray-400 dark:text-white">Select your Price Range :</p>
 
           <Slider
             value={priceValue}

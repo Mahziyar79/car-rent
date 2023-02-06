@@ -21,8 +21,8 @@ function Checkout() {
       <div className="container mx-auto xl:max-w-screen-2xl">
         <div className="flex md:flex-row flex-col-reverse  items-start gap-x-7 mt-5 xl:mx-0 mx-3">
           <div className="w-full lg:w-2/3">
-            <div className="bg-white p-5 mb-8 rounded-lg">
-              <h2 className="text-[#1A202C] font-bold text-lg">Billing Info</h2>
+            <div className="bg-white dark:bg-[#2e4551] dark:text-white p-5 mb-8 rounded-lg">
+              <h2 className="text-[#1A202C] dark:text-white font-bold text-lg">Billing Info</h2>
               <p className="text-[#90A3BF] mt-1 font-light">
                 Please enter your billing info
               </p>
@@ -32,7 +32,7 @@ function Checkout() {
                   <input
                     name="name"
                     id="name"
-                    className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
+                    className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white py-3 px-4 outline-none text-sm rounded-lg"
                     type="text"
                     placeholder="Your name"
                   />
@@ -42,7 +42,7 @@ function Checkout() {
                   <input
                     name="phone_number"
                     id="phone_number"
-                    className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
+                    className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white py-3 px-4 outline-none text-sm rounded-lg"
                     type="number"
                     placeholder="Phone number"
                   />
@@ -52,7 +52,7 @@ function Checkout() {
                   <input
                     name="address"
                     id="address"
-                    className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
+                    className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white py-3 px-4 outline-none text-sm rounded-lg"
                     type="text"
                     placeholder="Address"
                   />
@@ -62,26 +62,26 @@ function Checkout() {
                   <input
                     name="town_city"
                     id="town_city"
-                    className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
+                    className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white py-3 px-4 outline-none text-sm rounded-lg"
                     type="text"
                     placeholder="Town / City"
                   />
                 </div>
               </div>
             </div>
-            <div className="bg-white p-5 mb-8 rounded-lg">
-              <h2 className="text-[#1A202C] font-bold text-lg">Rental Info</h2>
+            <div className="bg-white dark:bg-[#2e4551] dark:text-white p-5 mb-8 rounded-lg">
+              <h2 className="text-[#1A202C] dark:text-white font-bold text-lg">Rental Info</h2>
               <p className="text-[#90A3BF] mt-1 font-light">
                 Please select your rental date
               </p>
-              <h2 className="text-[#1A202C] font-bold text-lg mt-5 mb-3">
+              <h2 className="text-[#1A202C] dark:text-white font-bold text-lg mt-5 mb-3">
                 Pick - Up
               </h2>
               <div className="flex flex-wrap items-center justify-between gap-y-4">
                 <div className="flex flex-col gap-y-2 w-[47%]">
                   <label htmlFor="pick_up_locations">Locations</label>
                   <select
-                    className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
+                    className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white py-3 px-4 outline-none text-sm rounded-lg"
                     id="pick_up_locations"
                     name="pick_up_locations"
                   >
@@ -98,7 +98,7 @@ function Checkout() {
                     id="pick_up_date"
                     name="pick_up_date"
                     type="date"
-                    className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
+                    className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white py-3 px-4 outline-none text-sm rounded-lg"
                   />
                 </div>
                 <div className="flex flex-col gap-y-2 w-[47%]">
@@ -107,20 +107,20 @@ function Checkout() {
                     id="pick_up_time"
                     name="pick_up_time"
                     type="time"
-                    className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
+                    className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white py-3 px-4 outline-none text-sm rounded-lg"
                     min="09:00"
                     max="24:00"
                   />
                 </div>
               </div>
-              <h2 className="text-[#1A202C] font-bold text-lg mt-5 mb-3">
+              <h2 className="text-[#1A202C] dark:text-white font-bold text-lg mt-5 mb-3">
                 Drop - Off
               </h2>
               <div className="flex flex-wrap items-center justify-between gap-y-4">
                 <div className="flex flex-col gap-y-2 w-[47%]">
                   <label htmlFor="drop_off_locations">Locations</label>
                   <select
-                    className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
+                    className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white py-3 px-4 outline-none text-sm rounded-lg"
                     id="drop_off_locations"
                     name="drop_off_locations"
                   >
@@ -137,7 +137,7 @@ function Checkout() {
                     id="drop_off_date"
                     name="drop_off_date"
                     type="date"
-                    className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
+                    className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white py-3 px-4 outline-none text-sm rounded-lg"
                   />
                 </div>
                 <div className="flex flex-col gap-y-2 w-[47%]">
@@ -146,21 +146,21 @@ function Checkout() {
                     id="drop_off_time"
                     name="drop_off_time"
                     type="time"
-                    className="bg-[#F6F7F9] py-3 px-4 outline-none text-sm rounded-lg"
+                    className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white py-3 px-4 outline-none text-sm rounded-lg"
                     min="09:00"
                     max="24:00"
                   />
                 </div>
               </div>
             </div>
-            <div className="bg-white p-5 mb-8 rounded-lg">
-              <h2 className="text-[#1A202C] font-bold text-lg">
+            <div className="bg-white dark:bg-[#2e4551] dark:text-white p-5 mb-8 rounded-lg">
+              <h2 className="text-[#1A202C] dark:text-white font-bold text-lg">
                 Payment Method
               </h2>
               <p className="text-[#90A3BF] mt-1 font-light">
                 Please enter your payment method
               </p>
-              <div className=" mt-5 bg-[#F6F7F9] rounded-lg p-5">
+              <div className=" mt-5 bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white rounded-lg p-5">
                 <div className="flex items-center justify-between mb-6">
                   <p className="font-bold">Credit Card</p>
                   <Image
@@ -212,14 +212,14 @@ function Checkout() {
                 </div>
               </div>
             </div>
-            <div className="bg-white p-5 mb-8 rounded-lg">
-              <h2 className="text-[#1A202C] font-bold text-lg">Confirmation</h2>
+            <div className="bg-white dark:bg-[#2e4551] dark:text-white p-5 mb-8 rounded-lg">
+              <h2 className="text-[#1A202C] dark:text-white font-bold text-lg">Confirmation</h2>
               <p className="text-[#90A3BF] mt-1 font-light">
                 We are getting to the end. Just few clicks and your rental is
                 ready!
               </p>
               <div className="flex flex-wrap items-center justify-between gap-y-4 mt-5">
-                <div className="flex gap-x-3 bg-[#F6F7F9] p-5 w-full rounded-lg">
+                <div className="flex gap-x-3 bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white p-5 w-full rounded-lg">
                   <input
                     name="agree_form"
                     id="agree_form"
@@ -233,7 +233,7 @@ function Checkout() {
                     spam, promissed!
                   </label>
                 </div>
-                <div className="flex gap-x-3 bg-[#F6F7F9] p-5 w-full rounded-lg">
+                <div className="flex gap-x-3 bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white p-5 w-full rounded-lg">
                   <input
                     name="agree_form1"
                     id="agree_form1"
@@ -252,9 +252,9 @@ function Checkout() {
               </div>
             </div>
           </div>
-          <div className="bg-white w-full lg:w-1/3 p-5 rounded-lg mb-5 md:mb-0">
-            <h2 className="text-[#1A202C] font-bold text-lg">Rental Summary</h2>
-            <p className="text-[#90A3BF] mt-1 font-light">
+          <div className="bg-white w-full dark:bg-[#243137] dark:text-white lg:w-1/3 p-5 rounded-lg mb-5 md:mb-0">
+            <h2 className="text-[#1A202C] dark:text-white font-bold text-lg">Rental Summary</h2>
+            <p className="text-[#90A3BF] dark:text-white mt-1 font-light">
               Prices may change depending on the length of the rental and the
               price of your rental car.
             </p>
@@ -275,7 +275,7 @@ function Checkout() {
                     <Rating value={parseInt(carData?.rating)} readOnly />
                   </div>
                   <div>
-                    <p className="text-sm text-[#596780]">440+ Reviewer</p>
+                    <p className="text-sm text-[#596780] dark:text-white">440+ Reviewer</p>
                   </div>
                 </div>
               </div>
@@ -288,7 +288,7 @@ function Checkout() {
                   $
                   {carData?.off_price
                     ? carData?.off_price
-                    : carData?.final_price}
+                    : carData?.final_price}.00
                 </span>
               </div>
               <div className="flex items-center justify-between">
@@ -302,7 +302,7 @@ function Checkout() {
                 </span>
               </div>
             </div>
-            <div className="bg-[#F6F7F9] py-3 px-6 rounded-lg flex items-center justify-between mt-4">
+            <div className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white dark:bg-[#485b64] py-3 px-6 rounded-lg flex items-center justify-between mt-4">
               <input
                 className="bg-transparent outline-none"
                 type="text"
@@ -312,19 +312,19 @@ function Checkout() {
             </div>
             <div className="flex items-center justify-between mt-5">
               <div>
-                <p className="text-[#1A202C] font-bold text-xl mb-1">
+                <p className="text-[#1A202C] dark:text-white font-bold text-xl mb-1">
                   Total Rental Price
                 </p>
-                <p className="text-[#90A3BF] text-sm font-light">
+                <p className="text-[#90A3BF] text-sm font-light dark:text-white">
                   Overall price and includes rental discount
                 </p>
               </div>
-              <p className="text-[#1A202C] font-bold text-2xl">
+              <p className="text-[#1A202C] dark:text-white font-bold text-2xl">
                 $
                 {carData?.off_price
                   ? carData?.off_price -
                     (carData?.off_price - carData?.final_price)
-                  : carData?.final_price}
+                  : carData?.final_price}.00
               </p>
             </div>
           </div>

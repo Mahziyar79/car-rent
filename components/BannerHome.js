@@ -10,7 +10,7 @@ function BannerHome() {
       <div className="container mx-auto xl:max-w-screen-2xl md:flex md:items-center md:justify-between md:gap-x-12 my-7 ">
         <div className="grow relative mb-5 md:mb-0">
           <Image
-            className=" bg-[#54a6ff] rounded-md w-full lg:h-auto h-[300px] md:h-[250px] object-cover"
+            className=" bg-[#54a6ff] dark:bg-[#243137] rounded-md w-full lg:h-auto h-[300px] md:h-[250px] object-cover"
             src={Ads1}
             alt="Ads1 Image"
           />
@@ -31,7 +31,7 @@ function BannerHome() {
         </div>
         <div className="grow relative">
           <Image
-            className=" bg-[#3563e9] rounded-md w-full lg:h-auto h-[300px] md:h-[250px] object-cover"
+            className=" bg-[#3563e9] dark:bg-[#2f4f5e] rounded-md w-full lg:h-auto h-[300px] md:h-[250px] object-cover"
             src={Ads2}
             alt="Ads2 Image"
           />

@@ -64,7 +64,7 @@ function CarId() {
               />
             </div>
           </div>
-          <div className="bg-white rounded-lg p-8 mt-5 md:mt-0 md:p-10 w-full md:w-1/2">
+          <div className="bg-white dark:bg-[#243137] dark:text-white rounded-lg p-8 mt-5 md:mt-0 md:p-10 w-full md:w-1/2">
             {/* title */}
             <div className="flex items-start justify-between">
               <div className="flex flex-col gap-y-2">
@@ -76,7 +76,7 @@ function CarId() {
                     <Rating value={parseInt(selectedItem?.rating)} readOnly />
                   </div>
                   <div>
-                    <p className="text-sm text-[#596780]">440+ Reviewer</p>
+                    <p className="text-sm text-[#596780] dark:text-white">440+ Reviewer</p>
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@ function CarId() {
             </div>
             {/* desc */}
             <div>
-              <p className="text-[#596780] leading-8 mt-5">
+              <p className="text-[#596780] leading-8 mt-5 dark:text-white">
                 {`NISMO has become the embodiment of Nissan's outstanding
                 performance, inspired by the most unforgiving proving ground,
                 the "race track".`}
@@ -106,19 +106,19 @@ function CarId() {
             <div className="flex flex-wrap items-center gap-x-32 gap-y-4 mt-7">
               <div className="flex items-center justify-between md:w-[40%] w-[100%]">
                 <p className="text-[#90A3BF] font-light">Type Car</p>
-                <p className="text-[#596780]">{selectedItem?.category}</p>
+                <p className="text-[#596780] dark:text-white">{selectedItem?.category}</p>
               </div>
               <div className="flex items-center justify-between md:w-[40%] w-[100%]">
                 <p className="text-[#90A3BF] font-light">Capacity</p>
-                <p className="text-[#596780]">{selectedItem?.passengers}</p>
+                <p className="text-[#596780] dark:text-white">{selectedItem?.passengers}</p>
               </div>
               <div className="flex items-center justify-between md:w-[40%] w-[100%]">
                 <p className="text-[#90A3BF] font-light">Steering</p>
-                <p className="text-[#596780]">{selectedItem?.gear}</p>
+                <p className="text-[#596780] dark:text-white">{selectedItem?.gear}</p>
               </div>
               <div className="flex items-center justify-between md:w-[40%] w-[100%]">
                 <p className="text-[#90A3BF] font-light">Gasoline</p>
-                <p className="text-[#596780]">{selectedItem?.gas}</p>
+                <p className="text-[#596780] dark:text-white">{selectedItem?.gas}</p>
               </div>
             </div>
             {/* price */}
@@ -151,7 +151,7 @@ function CarId() {
             </div>
           </div>
         </div>
-        <div className="bg-white p-8 rounded-lg">
+        <div className="bg-white dark:bg-[#243137] dark:text-white p-8 rounded-lg">
           <div className="flex items-center gap-x-3 mb-10">
             <p className="text-xl font-bold">Reviews</p>
             <span className="bg-[#3563E9] text-white py-1 px-5 rounded-lg">

@@ -6,13 +6,14 @@ import { UserGroupIcon } from "@heroicons/react/24/solid";
 import { CogIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addLike } from "../redux/addCars/carSlice";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function CarItem({ carItem , heartIsShow }) {
+function CarItem({ carItem, heartIsShow }) {
   const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.carReducer.darkMode);
 
   const dispatchAddFavourite = () => {
     dispatch(addLike(carItem.id));
@@ -22,7 +23,7 @@ function CarItem({ carItem , heartIsShow }) {
       toast.success("successfully added!");
     }
   };
-  
+
   return (
     <section
       className="bg-white dark:bg-[#243137] p-5 rounded-lg shadow-sm mx-2 md:mx-0 dark:text-white"
@@ -33,17 +34,21 @@ function CarItem({ carItem , heartIsShow }) {
           <h4 className="font-bold text-xl">{carItem.name}</h4>
           <span className="text-[#90A3BF] text-sm">{carItem.category}</span>
         </div>
-        {heartIsShow ? carItem.is_like ? (
-          <HeartIconSolid
-            onClick={() => dispatchAddFavourite()}
-            className="scroll-effect h-6 w-6 text-red-500 cursor-pointer"
-          />
+        {heartIsShow ? (
+          carItem.is_like ? (
+            <HeartIconSolid
+              onClick={() => dispatchAddFavourite()}
+              className="scroll-effect h-6 w-6 text-red-500 cursor-pointer"
+            />
+          ) : (
+            <HeartIcon
+              onClick={() => dispatchAddFavourite()}
+              className="scroll-effect h-6 w-6 text-[#90A3BF] cursor-pointer"
+            />
+          )
         ) : (
-          <HeartIcon
-            onClick={() => dispatchAddFavourite()}
-            className="scroll-effect h-6 w-6 text-[#90A3BF] cursor-pointer"
-          />
-        ) : ""}
+          ""
+        )}
       </div>
       <div className="relative mb-10">
         <Image
@@ -51,7 +56,11 @@ function CarItem({ carItem , heartIsShow }) {
           src={carItem.img}
           alt="Car1"
         />
-        <span className="cart-shadow"></span>
+        <span
+          className={`${
+            darkMode ? "cart-shadow-dark" : "cart-shadow"
+          } dark:rounded-b-md`}
+        ></span>
       </div>
       <div className="flex items-center justify-around">
         <div className="flex items-center gap-x-1">
