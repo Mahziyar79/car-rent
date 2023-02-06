@@ -6,7 +6,7 @@ import Ads2 from "../public/images/BgAds2.png";
 
 function BannerHome() {
   return (
-    <section className="md:px-10 px-3">
+    <section className="px-5">
       <div className="container mx-auto xl:max-w-screen-2xl md:flex md:items-center md:justify-between md:gap-x-12 my-7 ">
         <div className="grow relative mb-5 md:mb-0">
           <Image

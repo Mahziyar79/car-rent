@@ -302,13 +302,13 @@ function Checkout() {
                 </span>
               </div>
             </div>
-            <div className="bg-[#F6F7F9] dark:bg-[#3f6174] dark:text-white dark:bg-[#485b64] py-3 px-6 rounded-lg flex items-center justify-between mt-4">
+            <div className="bg-[#F6F7F9] dark:text-white dark:bg-[#485b64] py-3 px-3 md:px-6 rounded-lg flex items-center justify-between mt-4">
               <input
-                className="bg-transparent outline-none"
+                className="bg-transparent outline-none w-[190px] md:w-3/4"
                 type="text"
                 placeholder="Apply promo code"
               />
-              <button>Apply now</button>
+              <button className=" ">Apply now</button>
             </div>
             <div className="flex items-center justify-between mt-5">
               <div>

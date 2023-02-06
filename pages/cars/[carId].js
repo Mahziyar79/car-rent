@@ -76,7 +76,9 @@ function CarId() {
                     <Rating value={parseInt(selectedItem?.rating)} readOnly />
                   </div>
                   <div>
-                    <p className="text-sm text-[#596780] dark:text-white">440+ Reviewer</p>
+                    <p className="text-sm text-[#596780] dark:text-white">
+                      440+ Reviewer
+                    </p>
                   </div>
                 </div>
               </div>
@@ -104,21 +106,29 @@ function CarId() {
             </div>
             {/* Detail */}
             <div className="flex flex-wrap items-center gap-x-32 gap-y-4 mt-7">
-              <div className="flex items-center justify-between md:w-[40%] w-[100%]">
+              <div className="flex items-center justify-between xl:w-[40%] w-[100%]">
                 <p className="text-[#90A3BF] font-light">Type Car</p>
-                <p className="text-[#596780] dark:text-white">{selectedItem?.category}</p>
+                <p className="text-[#596780] dark:text-white">
+                  {selectedItem?.category}
+                </p>
               </div>
-              <div className="flex items-center justify-between md:w-[40%] w-[100%]">
+              <div className="flex items-center justify-between xl:w-[40%] w-[100%]">
                 <p className="text-[#90A3BF] font-light">Capacity</p>
-                <p className="text-[#596780] dark:text-white">{selectedItem?.passengers}</p>
+                <p className="text-[#596780] dark:text-white">
+                  {selectedItem?.passengers}
+                </p>
               </div>
-              <div className="flex items-center justify-between md:w-[40%] w-[100%]">
+              <div className="flex items-center justify-between xl:w-[40%] w-[100%]">
                 <p className="text-[#90A3BF] font-light">Steering</p>
-                <p className="text-[#596780] dark:text-white">{selectedItem?.gear}</p>
+                <p className="text-[#596780] dark:text-white">
+                  {selectedItem?.gear}
+                </p>
               </div>
-              <div className="flex items-center justify-between md:w-[40%] w-[100%]">
+              <div className="flex items-center justify-between xl:w-[40%] w-[100%]">
                 <p className="text-[#90A3BF] font-light">Gasoline</p>
-                <p className="text-[#596780] dark:text-white">{selectedItem?.gas}</p>
+                <p className="text-[#596780] dark:text-white">
+                  {selectedItem?.gas}
+                </p>
               </div>
             </div>
             {/* price */}
@@ -139,7 +149,7 @@ function CarId() {
                   <Link
                     href={{
                       pathname: "/checkout",
-                      query: {id:selectedItem.id},
+                      query: { id: selectedItem.id },
                     }}
                   >
                     <button className="md:py-4 md:px-7 px-4 py-2 bg-[#3563E9] rounded-md text-white scroll-effect">
@@ -151,83 +161,90 @@ function CarId() {
             </div>
           </div>
         </div>
-        <div className="bg-white dark:bg-[#243137] dark:text-white p-8 rounded-lg">
-          <div className="flex items-center gap-x-3 mb-10">
-            <p className="text-xl font-bold">Reviews</p>
-            <span className="bg-[#3563E9] text-white py-1 px-5 rounded-lg">
-              13
-            </span>
-          </div>
-          {/* review item */}
-          <div className="flex items-start gap-x-7 mb-8">
-            <div className="hidden md:block">
-              <Image
-                className="scroll-effect"
-                src={ProfileImage}
-                alt="Logo Image"
-                width={100}
-                height={100}
-              />
+        <section className="px-5">
+          <div className="bg-white dark:bg-[#243137] dark:text-white p-8 rounded-lg">
+            <div className="flex items-center gap-x-3 mb-10">
+              <p className="text-xl font-bold">Reviews</p>
+              <span className="bg-[#3563E9] text-white py-1 px-5 rounded-lg">
+                13
+              </span>
             </div>
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <p className="text-xl">Alex Stanton</p>
-                  <p className="text-[#90A3BF]">CEO at Bukalapak</p>
-                </div>
-                <div className="flex flex-col items-end justify-end">
-                  <p>21 July 2022</p>
-                  <Rating value={4.4} readOnly />
-                </div>
+            {/* review item */}
+            <div className="flex items-start gap-x-7 mb-8">
+              <div className="hidden md:block">
+                <Image
+                  className="scroll-effect"
+                  src={ProfileImage}
+                  alt="Logo Image"
+                  width={100}
+                  height={100}
+                />
               </div>
-              <p>
-                We are very happy with the service from the MORENT App. Morent
-                has a low price and also a large variety of cars with good and
-                comfortable facilities. In addition, the service provided by the
-                officers is also very friendly and very polite.
-              </p>
-            </div>
-          </div>
-          {/* review item */}
-          <div className="flex items-start gap-x-7 mb-8">
-            <div className="hidden md:block">
-              <Image
-                className="scroll-effect"
-                src={ReviewImg}
-                alt="Logo Image"
-                width={100}
-                height={100}
-              />
-            </div>
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <p className="text-xl">Skylar Dias</p>
-                  <p className="text-[#90A3BF]">CEO at Amazon</p>
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <p className="md:text-xl text-lg">Alex Stanton</p>
+                    <p className="text-[#90A3BF] text-sm">CEO at Bukalapak</p>
+                  </div>
+                  <div className="flex flex-col items-end justify-end">
+                    <p>21 July 2022</p>
+                    <Rating value={4.4} readOnly />
+                  </div>
                 </div>
-                <div className="flex flex-col items-end justify-end">
-                  <p>20 July 2022</p>
-                  <Rating value={5} readOnly />
-                </div>
+                <p className="font-light">
+                  We are very happy with the service from the MORENT App. Morent
+                  has a low price and also a large variety of cars with good and
+                  comfortable facilities. In addition, the service provided by
+                  the officers is also very friendly and very polite.
+                </p>
               </div>
-              <p>
-                We are greatly helped by the services of the MORENT Application.
-                Morent has low prices and also a wide variety of cars with good
-                and comfortable facilities. In addition, the service provided by
-                the officers is also very friendly and very polite.
-              </p>
+            </div>
+            {/* review item */}
+            <div className="flex items-start gap-x-7 mb-8">
+              <div className="hidden md:block">
+                <Image
+                  className="scroll-effect"
+                  src={ReviewImg}
+                  alt="Logo Image"
+                  width={100}
+                  height={100}
+                />
+              </div>
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <p className="md:text-xl text-lg">Skylar Dias</p>
+                    <p className="text-[#90A3BF] text-sm">CEO at Amazon</p>
+                  </div>
+                  <div className="flex flex-col items-end justify-end">
+                    <p>20 July 2022</p>
+                    <Rating value={5} readOnly />
+                  </div>
+                </div>
+                <p className="font-light">
+                  We are greatly helped by the services of the MORENT
+                  Application. Morent has low prices and also a wide variety of
+                  cars with good and comfortable facilities. In addition, the
+                  service provided by the officers is also very friendly and
+                  very polite.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex items-center justify-between md:px-0 px-2 mt-14">
-          <p className="text-[#90A3BF]">Recomendation Car</p>
-          <Link href="/cars" className="text-[#3563E9]">
-            View All
-          </Link>
-        </div>
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-4">
-          <CarCart sliceNubmer={4} />
-        </div>
+        </section>
+        <section className="md:px-5 px-2">
+          <>
+            <div className="flex items-center justify-between md:px-0 px-2 mt-14">
+              <p className="text-[#90A3BF]">Recomendation Car</p>
+              <Link href="/cars" className="text-[#3563E9]">
+                View All
+              </Link>
+            </div>
+            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-4">
+              <CarCart sliceNubmer={4} />
+            </div>
+          </>
+        </section>
       </div>
     </>
   );
