@@ -1,16 +1,35 @@
 import React from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
-import Image from "next/image";
-import ProfileImage from "../../public/images/image-profile.png";
+// import Image from "next/image";
+// import ProfileImage from "../../public/images/image-profile.png";
 import MenuBar from "./MenuBar";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import DarkMode from "./DarkMode";
+import { useRouter } from "next/router";
 
 function Notifications() {
   const cars = useSelector((state) => state.carReducer.cars);
+  const router = useRouter();
+  const { locale } = useRouter();
+
+  const changeLangHandler = (e) => {
+    const locale = e.target.value;
+    router.push("/","/",{locale})
+  };
+
   return (
     <div className="hidden md:flex md:gap-x-5 items-center">
+      <div>
+        <select
+          className="text-lg bg-transparent bg-gray-100 py-1 px-3 rounded-md text-gray-700 font-sans"
+          onChange={changeLangHandler}
+          value={locale}
+        >
+          <option value="en">EN</option>
+          <option value="fa">FA</option>
+        </select>
+      </div>
       <div>
         <DarkMode />
       </div>
@@ -22,8 +41,7 @@ function Notifications() {
           </span>
         </Link>
       </div>
-
-      <div>
+      {/* <div>
         <Image
           className="max-w-none scroll-effect cursor-pointer"
           src={ProfileImage}
@@ -31,7 +49,7 @@ function Notifications() {
           width={31}
           height={31}
         />
-      </div>
+      </div> */}
       <div>
         <MenuBar />
       </div>

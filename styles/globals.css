@@ -45,4 +45,7 @@ a {
       #243137 100%
     );
   }
+  .dir-rtl{
+    direction: rtl;
+  }
 }

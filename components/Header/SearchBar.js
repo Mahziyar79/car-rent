@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 function SearchBar() {
   const [searchValue, setSearchValue] = useState("");
   const router = useRouter();
+  const {locale} = useRouter();
   const goToSearchPage = () => {
     if (!searchValue) {
       toast.error("Enter Some Data First");
@@ -27,7 +28,7 @@ function SearchBar() {
           onChange={(e) => setSearchValue(e.target.value)}
           value={searchValue}
           className="pl-12 p-2 bg-transparent outline-none font-light dark:text-white"
-          placeholder="search somthing here"
+          placeholder={`${locale==="en" ? "search somthing here" :"جستجو کنید"}`}
         />
         <AdjustmentsHorizontalIcon className="h-6 w-6 absolute top-2 right-3 text-[#9caaba]" />
         <MagnifyingGlassIcon

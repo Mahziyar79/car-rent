@@ -10,17 +10,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { addLike } from "../redux/addCars/carSlice";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 function CarItem({ carItem, heartIsShow }) {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.carReducer.darkMode);
+  const { locale } = useRouter();
 
   const dispatchAddFavourite = () => {
     dispatch(addLike(carItem.id));
     if (carItem.is_like) {
-      toast.error("successfully deleted!");
+      {
+        locale === "en"
+          ? toast.error("successfully deleted!")
+          : toast.error("با موفقیت حذف شد!");
+      }
     } else {
-      toast.success("successfully added!");
+      {
+        locale === "en"
+          ? toast.success("successfully added!")
+          : toast.success("با موفقیت اضافه شد!");
+      }
     }
   };
 
@@ -32,7 +42,9 @@ function CarItem({ carItem, heartIsShow }) {
       <div className="flex items-start justify-between">
         <div>
           <h4 className="font-bold text-xl">{carItem.name}</h4>
-          <span className="text-[#90A3BF] text-sm">{carItem.category}</span>
+          <span className="text-[#90A3BF] text-sm">
+            {locale === "en" ? carItem.category : carItem.category_fa}
+          </span>
         </div>
         {heartIsShow ? (
           carItem.is_like ? (
@@ -65,15 +77,21 @@ function CarItem({ carItem, heartIsShow }) {
       <div className="flex items-center justify-around">
         <div className="flex items-center gap-x-1">
           <FunnelIcon className="scroll-effect h-6 w-6 text-[#90A3BF] cursor-pointer" />
-          <span className="text-[#90A3BF]">{carItem.gas}</span>
+          <span className="text-[#90A3BF]">
+            {locale === "en" ? carItem.gas : carItem.gas_fa}
+          </span>
         </div>
         <div className="flex items-center gap-x-1">
           <CogIcon className="scroll-effect h-6 w-6 text-[#90A3BF] cursor-pointer" />
-          <span className="text-[#90A3BF]">{carItem.gear}</span>
+          <span className="text-[#90A3BF]">
+            {locale === "en" ? carItem.gear : carItem.gear_fa}
+          </span>
         </div>
         <div className="flex items-center gap-x-1">
           <UserGroupIcon className="scroll-effect h-6 w-6 text-[#90A3BF] cursor-pointer" />
-          <span className="text-[#90A3BF]">{carItem.passengers}</span>
+          <span className="text-[#90A3BF]">
+            {locale === "en" ? carItem.passengers : carItem.passengers_fa}
+          </span>
         </div>
       </div>
       <div className="flex items-center justify-around mt-6">

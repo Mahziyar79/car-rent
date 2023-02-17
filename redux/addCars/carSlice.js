@@ -5,6 +5,8 @@ const initialState = {
   cars: carItems,
   darkMode :false
 };
+
+
 export const carSlice = createSlice({
   name: "car",
   initialState,

@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'sans': ['poppins'],
+        'iransans' : ['iransans']
       },
     },
   },
