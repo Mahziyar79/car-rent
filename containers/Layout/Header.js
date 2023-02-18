@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 import LogoImage from "../../public/images/Logo.png";
 import LogoDarkImage from "../../public/images/LogoDark.png";
-import ProfileImage from "../../public/images/image-profile.png";
 import Notifications from "../../components/Header/Notifications";
 import SearchBar from "../../components/Header/SearchBar";
 import Link from "next/link";

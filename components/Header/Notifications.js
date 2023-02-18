@@ -1,12 +1,9 @@
 import React from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
-// import Image from "next/image";
-// import ProfileImage from "../../public/images/image-profile.png";
 import MenuBar from "./MenuBar";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import DarkMode from "./DarkMode";
-import { useRouter } from "next/router";
 import ChangeLang from "./ChangeLang";
 
 function Notifications() {
