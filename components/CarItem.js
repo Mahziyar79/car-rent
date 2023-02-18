@@ -33,15 +33,15 @@ function CarItem({ carItem, heartIsShow }) {
       }
     }
   };
-
+  
   return (
     <section
-      className="bg-white dark:bg-[#243137] p-5 rounded-lg shadow-sm mx-2 md:mx-0 dark:text-white"
+      className={`bg-white dark:bg-[#243137] p-5 rounded-lg shadow-sm mx-2 md:mx-0 dark:text-white ${locale==="fa" && "font-iransans"}`}
       key={carItem.id}
     >
       <div className="flex items-start justify-between">
         <div>
-          <h4 className="font-bold text-xl">{carItem.name}</h4>
+          <h4 className="font-bold text-xl font-sans">{carItem.name}</h4>
           <span className="text-[#90A3BF] text-sm">
             {locale === "en" ? carItem.category : carItem.category_fa}
           </span>
@@ -95,7 +95,7 @@ function CarItem({ carItem, heartIsShow }) {
         </div>
       </div>
       <div className="flex items-center justify-around mt-6">
-        <div className="flex flex-col">
+        <div className="flex flex-col font-sans">
           <p className="font-bold text-2xl">
             ${carItem.final_price}.00 /{" "}
             <span className="text-xs text-[#90A3BF]">day</span>
@@ -108,7 +108,7 @@ function CarItem({ carItem, heartIsShow }) {
         </div>
         <div>
           <Link href={`/cars/${carItem.id}`}>
-            <button className="md:py-2 md:px-4 p-2 bg-[#3563E9] rounded-md text-white text-sm">
+            <button className="md:py-2 md:px-4 p-2 bg-[#3563E9] rounded-md text-white text-sm font-sans">
               Rental Now
             </button>
           </Link>
