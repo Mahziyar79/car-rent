@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import DarkMode from "./DarkMode";
 import ChangeLang from "./ChangeLang";
 
+
 function Notifications() {
   const cars = useSelector((state) => state.carReducer.cars);
   return (
