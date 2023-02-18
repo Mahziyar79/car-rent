@@ -17,11 +17,12 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { useSelector } from "react-redux";
+import ChangeLang from "./ChangeLang";
 
 export default function MenuBar() {
   const darkMode = useSelector((state) => state.carReducer.darkMode);
 
-  const [state, setState] = React.useState({
+  const [manueState, setMenuState] = React.useState({
     right: false,
   });
 
@@ -33,66 +34,71 @@ export default function MenuBar() {
       return;
     }
 
-    setState({ ...state, [anchor]: open });
+    setMenuState({ ...manueState, [anchor]: open });
   };
 
   const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        <ListItem>
-          <ListItemButton>
-            <Link href="/">
-            {darkMode ? (
-                <Image
-                  className="scroll-effect"
-                  src={LogoDarkImg}
-                  alt="Logo Image"
-                  width={150}
-                  height={150}
-                />
-              ) : (
-                <Image
-                  className="scroll-effect"
-                  src={LogoImg}
-                  alt="Logo Image"
-                  width={150}
-                  height={150}
-                />
-              )}
+    <>
+      <Box
+        sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+        role="presentation"
+        onClick={toggleDrawer(anchor, false)}
+        onKeyDown={toggleDrawer(anchor, false)}
+      >
+        <List>
+          <ListItem>
+            <ListItemButton>
+              <Link href="/">
+                {darkMode ? (
+                  <Image
+                    className="scroll-effect"
+                    src={LogoDarkImg}
+                    alt="Logo Image"
+                    width={150}
+                    height={150}
+                  />
+                ) : (
+                  <Image
+                    className="scroll-effect"
+                    src={LogoImg}
+                    alt="Logo Image"
+                    width={150}
+                    height={150}
+                  />
+                )}
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem>
+            <Link className="w-full" href="/">
+              <ListItemButton className="flex gap-x-2 items-center">
+                <HomeIcon className="h-6 w-6 text-[#90A3BF]" />
+                <ListItemText primary="Home" />
+              </ListItemButton>
             </Link>
-          </ListItemButton>
-        </ListItem>
-        <ListItem>
-          <Link className="w-full" href="/">
-            <ListItemButton className="flex gap-x-2 items-center">
-              <HomeIcon className="h-6 w-6 text-[#90A3BF]" />
-              <ListItemText primary="Home" />
-            </ListItemButton>
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link className="w-full" href="/cars">
-            <ListItemButton className="flex gap-x-2 items-center">
-              <TruckIcon className="h-6 w-6 text-[#90A3BF]" />
-              <ListItemText primary="Cars" />
-            </ListItemButton>
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link className="w-full" href="/favourite">
-            <ListItemButton className="flex gap-x-2 items-center">
-              <HeartIcon className="h-6 w-6 text-[#90A3BF]" />
-              <ListItemText primary="Favourite" />
-            </ListItemButton>
-          </Link>
-        </ListItem>
-      </List>
-    </Box>
+          </ListItem>
+          <ListItem>
+            <Link className="w-full" href="/cars">
+              <ListItemButton className="flex gap-x-2 items-center">
+                <TruckIcon className="h-6 w-6 text-[#90A3BF]" />
+                <ListItemText primary="Cars" />
+              </ListItemButton>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link className="w-full" href="/favourite">
+              <ListItemButton className="flex gap-x-2 items-center">
+                <HeartIcon className="h-6 w-6 text-[#90A3BF]" />
+                <ListItemText primary="Favourite" />
+              </ListItemButton>
+            </Link>
+          </ListItem>
+        </List>
+      </Box>
+      <div className="mx-8">
+        <ChangeLang manueState={manueState} setMenuOpen={setMenuState} />
+      </div>
+    </>
   );
 
   return (
@@ -105,13 +111,13 @@ export default function MenuBar() {
           {darkMode ? (
             <Drawer
               anchor={anchor}
-              open={state[anchor]}
+              open={manueState[anchor]}
               onClose={toggleDrawer(anchor, false)}
               PaperProps={{
                 sx: {
                   backgroundColor: "#243137",
                   color: "white",
-                }
+                },
               }}
             >
               {list(anchor)}
@@ -119,13 +125,12 @@ export default function MenuBar() {
           ) : (
             <Drawer
               anchor={anchor}
-              open={state[anchor]}
+              open={manueState[anchor]}
               onClose={toggleDrawer(anchor, false)}
             >
               {list(anchor)}
             </Drawer>
           )}
-          
         </React.Fragment>
       ))}
     </div>

@@ -7,28 +7,14 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 import DarkMode from "./DarkMode";
 import { useRouter } from "next/router";
+import ChangeLang from "./ChangeLang";
 
 function Notifications() {
   const cars = useSelector((state) => state.carReducer.cars);
-  const router = useRouter();
-  const { locale } = useRouter();
-
-  const changeLangHandler = (e) => {
-    const locale = e.target.value;
-    router.push("/","/",{locale})
-  };
-
   return (
     <div className="hidden md:flex md:gap-x-5 items-center">
       <div>
-        <select
-          className="text-lg bg-transparent bg-gray-100 py-1 px-3 rounded-md text-gray-700 font-sans"
-          onChange={changeLangHandler}
-          value={locale}
-        >
-          <option value="en">EN</option>
-          <option value="fa">FA</option>
-        </select>
+        <ChangeLang />
       </div>
       <div>
         <DarkMode />
