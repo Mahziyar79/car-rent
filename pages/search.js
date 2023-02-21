@@ -6,6 +6,7 @@ import CarItem from "../components/CarItem";
 
 function Search() {
   const router = useRouter();
+  const { locale } = useRouter();
   const cars = useSelector((state) => state.carReducer.cars);
   const search = router.query.search;
   const searchItems = cars.filter((car) =>
@@ -13,9 +14,9 @@ function Search() {
   );
 
   return (
-    <div className="container mx-auto xl:max-w-screen-2xl mt-8">
+    <div className={`container mx-auto xl:max-w-screen-2xl mt-8 ${locale==="fa" && "font-iransans"}`}>
       <h2 className="text-center text-2xl mb-4 dark:text-white">
-        You Searched for : <span className="font-bold">{search}</span>
+        {locale==="en" ? "You Searched for :" : "واژه سرچ شده :"} <span className="font-bold">{search}</span>
       </h2>
 
       <div className=" grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-4">
@@ -25,10 +26,10 @@ function Search() {
           })
         ) : (
           <div className="flex flex-col items-center justify-center col-span-4 md:min-h-[240px]">
-            <h2 className="font-bold text-xl text-center col-span-4 mt-10 dark:text-white">{`Not Found Any Car :(`}</h2>
+            <h2 className="font-bold text-xl text-center col-span-4 mt-10 dark:text-white">{`${locale === "en" ? "Not Found Any Car" : "خودرویی پیدا نشد "}`}</h2>
             <Link href="/">
               <button className="md:py-3 md:px-4 p-2 bg-[#3563E9] rounded-md text-white mt-5">
-                Back to Homepage
+              {locale === "en" ? "Back to Homepage" : "بازگشت به صفحه اصلی"}
               </button>
             </Link>
           </div>

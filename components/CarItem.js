@@ -98,7 +98,7 @@ function CarItem({ carItem, heartIsShow }) {
         <div className="flex flex-col font-sans">
           <p className="font-bold text-2xl">
             ${carItem.final_price}.00 /{" "}
-            <span className="text-xs text-[#90A3BF]">day</span>
+            <span className={`text-xs text-[#90A3BF] ${locale==="fa" && "!font-iransans"}`}>{locale === "en" ? "day" : "روز"}</span>
           </p>
           {carItem.off_price && (
             <span className="text-sm text-[#90A3BF] line-through	">
@@ -108,8 +108,8 @@ function CarItem({ carItem, heartIsShow }) {
         </div>
         <div>
           <Link href={`/cars/${carItem.id}`}>
-            <button className="md:py-2 md:px-4 p-2 bg-[#3563E9] rounded-md text-white text-sm font-sans">
-              Rental Now
+            <button className={`md:py-2 md:px-4 p-2 bg-[#3563E9] rounded-md text-white text-sm font-sans ${locale==="fa" && "!font-iransans"}`}>
+            {locale === "en" ? "Rental Now" : "اجاره کنید"}
             </button>
           </Link>
         </div>

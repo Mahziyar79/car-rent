@@ -36,7 +36,6 @@ function ChangeLang({ setMenuOpen, manueState }) {
         options={langOption}
         isSearchable={false}
         hideSelectedOptions={true}
-        
         styles={customStyles}
       />
       {/* <select
