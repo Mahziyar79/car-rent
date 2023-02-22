@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("font.css");
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer components {
+  .scroll-effect {
+    @apply hover:scale-105 transition-all ease-in cursor-pointer;
+  }
+  .cart-shadow {
+    position: absolute;
+    width: 100%;
+    height: 47px;
+    left: 0px;
+    bottom:0px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      #ffffff 100%
+    );
+  }
+  .cart-shadow-dark {
+    position: absolute;
+    width: 100%;
+    height: 47px;
+    left: 0px;
+    bottom:0px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      #243137 100%
+    );
+  }
+  .dir-rtl{
+    direction: rtl;
+  }
+}
