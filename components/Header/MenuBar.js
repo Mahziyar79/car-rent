@@ -18,10 +18,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import ChangeLang from "./ChangeLang";
+import { useRouter } from "next/router";
 
 export default function MenuBar() {
   const darkMode = useSelector((state) => state.carReducer.darkMode);
-
+  const { locale } = useRouter();
   const [manueState, setMenuState] = React.useState({
     right: false,
   });
@@ -71,9 +72,13 @@ export default function MenuBar() {
           </ListItem>
           <ListItem>
             <Link className="w-full" href="/">
-              <ListItemButton className="flex gap-x-2 items-center">
+              <ListItemButton className="flex gap-x-2 items-center font-iransans">
                 <HomeIcon className="h-6 w-6 text-[#90A3BF]" />
-                <ListItemText primary="Home" />
+                {locale === "en" ? (
+                  <ListItemText primary="Home" />
+                ) : (
+                  <ListItemText primary="خانه" />
+                )}
               </ListItemButton>
             </Link>
           </ListItem>
@@ -81,7 +86,11 @@ export default function MenuBar() {
             <Link className="w-full" href="/cars">
               <ListItemButton className="flex gap-x-2 items-center">
                 <TruckIcon className="h-6 w-6 text-[#90A3BF]" />
-                <ListItemText primary="Cars" />
+                {locale === "en" ? (
+                  <ListItemText primary="Cars" />
+                ) : (
+                  <ListItemText primary="ماشین ها" />
+                )}
               </ListItemButton>
             </Link>
           </ListItem>
@@ -89,7 +98,11 @@ export default function MenuBar() {
             <Link className="w-full" href="/favourite">
               <ListItemButton className="flex gap-x-2 items-center">
                 <HeartIcon className="h-6 w-6 text-[#90A3BF]" />
-                <ListItemText primary="Favourite" />
+                {locale === "en" ? (
+                  <ListItemText primary="Favourite" />
+                ) : (
+                  <ListItemText primary="علاقه مندی ها" />
+                )}
               </ListItemButton>
             </Link>
           </ListItem>

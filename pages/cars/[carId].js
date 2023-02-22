@@ -20,15 +20,25 @@ import "react-toastify/dist/ReactToastify.css";
 function CarId() {
   const { query } = useRouter();
   const dispatch = useDispatch();
+  const { locale } = useRouter();
+
   const cars = useSelector((state) => state.carReducer.cars);
 
   const selectedItem = cars.find((item) => item.id == query.carId);
   const dispatchAddFavourite = () => {
     dispatch(addLike(selectedItem.id));
     if (selectedItem.is_like) {
-      toast.error("successfully deleted!");
+      {
+        locale === "en"
+          ? toast.error("successfully deleted!")
+          : toast.error("با موفقیت حذف شد!");
+      }
     } else {
-      toast.success("successfully added!");
+      {
+        locale === "en"
+          ? toast.success("successfully added!")
+          : toast.success("با موفقیت اضافه شد!");
+      }
     }
   };
   return (
@@ -98,36 +108,52 @@ function CarId() {
             </div>
             {/* desc */}
             <div>
-              <p className="text-[#596780] leading-8 mt-5 dark:text-white">
-                {`NISMO has become the embodiment of Nissan's outstanding
-                performance, inspired by the most unforgiving proving ground,
-                the "race track".`}
+              <p
+                className={`text-[#596780] leading-8 mt-5 dark:text-white ${
+                  locale === "fa" && "text-right"
+                }`}
+              >
+                {locale === "en"
+                  ? 'NISMO has become the embodiment of Nissans outstanding performance, inspired by the most unforgiving proving ground, the "race track"'
+                  : "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد"}
               </p>
             </div>
             {/* Detail */}
             <div className="flex flex-wrap items-center gap-x-32 gap-y-4 mt-7">
               <div className="flex items-center justify-between xl:w-[40%] w-[100%]">
-                <p className="text-[#90A3BF] font-light">Type Car</p>
+                <p className="text-[#90A3BF] font-light">
+                  {locale === "en" ? "Type Car" : "نوع خودرو"}
+                </p>
                 <p className="text-[#596780] dark:text-white">
-                  {selectedItem?.category}
+                  {locale === "en"
+                    ? selectedItem?.category
+                    : selectedItem?.category_fa}
                 </p>
               </div>
               <div className="flex items-center justify-between xl:w-[40%] w-[100%]">
-                <p className="text-[#90A3BF] font-light">Capacity</p>
+                <p className="text-[#90A3BF] font-light">
+                  {locale === "en" ? "Capacity" : "ظرفیت"}
+                </p>
                 <p className="text-[#596780] dark:text-white">
-                  {selectedItem?.passengers}
+                  {locale === "en"
+                    ? selectedItem?.passengers
+                    : selectedItem?.passengers_fa}
                 </p>
               </div>
               <div className="flex items-center justify-between xl:w-[40%] w-[100%]">
-                <p className="text-[#90A3BF] font-light">Steering</p>
+                <p className="text-[#90A3BF] font-light">
+                  {locale === "en" ? "Steering" : "نوع دنده"}
+                </p>
                 <p className="text-[#596780] dark:text-white">
-                  {selectedItem?.gear}
+                  {locale === "en" ? selectedItem?.gear : selectedItem?.gear_fa}
                 </p>
               </div>
               <div className="flex items-center justify-between xl:w-[40%] w-[100%]">
-                <p className="text-[#90A3BF] font-light">Gasoline</p>
+                <p className="text-[#90A3BF] font-light">
+                  {locale === "en" ? "Gasoline" : "ظرفبت باک"}
+                </p>
                 <p className="text-[#596780] dark:text-white">
-                  {selectedItem?.gas}
+                  {locale === "en" ? selectedItem?.gas : selectedItem?.gas_fa}
                 </p>
               </div>
             </div>
@@ -136,7 +162,9 @@ function CarId() {
               <div className="flex flex-col">
                 <p className="font-bold md:text-3xl text-2xl">
                   ${selectedItem?.final_price} /{" "}
-                  <span className="text-sm text-[#90A3BF]">day</span>
+                  <span className="text-sm text-[#90A3BF]">
+                    {locale === "en" ? "day" : "روز"}
+                  </span>
                 </p>
                 {selectedItem?.off_price && (
                   <span className="text-[#90A3BF] line-through	">
@@ -153,7 +181,7 @@ function CarId() {
                     }}
                   >
                     <button className="md:py-4 md:px-7 px-4 py-2 bg-[#3563E9] rounded-md text-white scroll-effect">
-                      Rental Now
+                      {locale === "en" ? "Rental Now" : "هم اکنون رزرو کنید"}
                     </button>
                   </Link>
                 )}
@@ -164,7 +192,9 @@ function CarId() {
         <section className="px-5">
           <div className="bg-white dark:bg-[#243137] dark:text-white p-8 rounded-lg">
             <div className="flex items-center gap-x-3 mb-10">
-              <p className="text-xl font-bold">Reviews</p>
+              <p className="text-xl font-bold">
+                {locale === "en" ? "Reviews" : "نظرات"}
+              </p>
               <span className="bg-[#3563E9] text-white py-1 px-5 rounded-lg">
                 13
               </span>
@@ -180,22 +210,26 @@ function CarId() {
                   height={100}
                 />
               </div>
-              <div>
+              <div className="grow">
                 <div className="flex items-center justify-between mb-3">
                   <div>
                     <p className="md:text-xl text-lg">Alex Stanton</p>
-                    <p className="text-[#90A3BF] text-sm">CEO at Bukalapak</p>
+                    <p className="text-[#90A3BF] text-sm">
+                      {locale === "en"
+                        ? "CEO at Bukalapak"
+                        : " Bukalapak در شرکت CEO"}
+                    </p>
                   </div>
                   <div className="flex flex-col items-end justify-end">
                     <p>21 July 2022</p>
                     <Rating value={4.4} readOnly />
                   </div>
                 </div>
-                <p className="font-light">
-                  We are very happy with the service from the MORENT App. Morent
-                  has a low price and also a large variety of cars with good and
-                  comfortable facilities. In addition, the service provided by
-                  the officers is also very friendly and very polite.
+
+                <p className={`font-light ${locale==="fa" && "text-right"}`}>
+                  {locale === "en"
+                    ? "We are very happy with the service from this sebsite. Morent has a low price and also a large variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite."
+                    : "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد"}
                 </p>
               </div>
             </div>
@@ -210,23 +244,25 @@ function CarId() {
                   height={100}
                 />
               </div>
-              <div>
+              <div className="grow">
                 <div className="flex items-center justify-between mb-3">
                   <div>
                     <p className="md:text-xl text-lg">Skylar Dias</p>
-                    <p className="text-[#90A3BF] text-sm">CEO at Amazon</p>
+                    <p className="text-[#90A3BF] text-sm">
+                      {locale === "en"
+                        ? "CEO at Amazon"
+                        : " Amaozn در شرکت CEO"}
+                    </p>
                   </div>
                   <div className="flex flex-col items-end justify-end">
                     <p>20 July 2022</p>
                     <Rating value={5} readOnly />
                   </div>
                 </div>
-                <p className="font-light">
-                  We are greatly helped by the services of the MORENT
-                  Application. Morent has low prices and also a wide variety of
-                  cars with good and comfortable facilities. In addition, the
-                  service provided by the officers is also very friendly and
-                  very polite.
+                <p className={`font-light ${locale==="fa" && "text-right"}`}>
+                  {locale === "en"
+                    ? "We are greatly helped by the services of the MORENTApplication. Morent has low prices and also a wide variety ofcars with good and comfortable facilities. In addition, theservice provided by the officers is also very friendly and very polite."
+                    : "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد"}
                 </p>
               </div>
             </div>
