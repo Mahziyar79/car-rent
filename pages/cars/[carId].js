@@ -110,7 +110,7 @@ function CarId() {
             <div>
               <p
                 className={`text-[#596780] leading-8 mt-5 dark:text-white ${
-                  locale === "fa" && "text-right"
+                  locale === "fa" && "text-right font-iransans"
                 }`}
               >
                 {locale === "en"
@@ -119,7 +119,7 @@ function CarId() {
               </p>
             </div>
             {/* Detail */}
-            <div className="flex flex-wrap items-center gap-x-32 gap-y-4 mt-7">
+            <div className={`flex flex-wrap items-center gap-x-32 gap-y-4 mt-7 ${locale==="fa" && "font-iransans dir-rtl"}`}>
               <div className="flex items-center justify-between xl:w-[40%] w-[100%]">
                 <p className="text-[#90A3BF] font-light">
                   {locale === "en" ? "Type Car" : "نوع خودرو"}
@@ -162,7 +162,7 @@ function CarId() {
               <div className="flex flex-col">
                 <p className="font-bold md:text-3xl text-2xl">
                   ${selectedItem?.final_price} /{" "}
-                  <span className="text-sm text-[#90A3BF]">
+                  <span className={`text-sm text-[#90A3BF] ${locale==="fa" && "font-iransans"}`}>
                     {locale === "en" ? "day" : "روز"}
                   </span>
                 </p>
@@ -180,7 +180,7 @@ function CarId() {
                       query: { id: selectedItem.id },
                     }}
                   >
-                    <button className="md:py-4 md:px-7 px-4 py-2 bg-[#3563E9] rounded-md text-white scroll-effect">
+                    <button className={`md:py-4 md:px-7 px-4 py-2 bg-[#3563E9] rounded-md text-white scroll-effect ${locale==="fa" && "font-iransans"}`}>
                       {locale === "en" ? "Rental Now" : "هم اکنون رزرو کنید"}
                     </button>
                   </Link>
@@ -190,7 +190,7 @@ function CarId() {
           </div>
         </div>
         <section className="px-5">
-          <div className="bg-white dark:bg-[#243137] dark:text-white p-8 rounded-lg">
+          <div className={`bg-white dark:bg-[#243137] dark:text-white p-8 rounded-lg ${locale==="fa" && "font-iransans dir-rtl"}`}>
             <div className="flex items-center gap-x-3 mb-10">
               <p className="text-xl font-bold">
                 {locale === "en" ? "Reviews" : "نظرات"}
